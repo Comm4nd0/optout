@@ -272,3 +272,195 @@ def test_dashboard_without_password_is_loopback_only(env, monkeypatch, capsys):
     monkeypatch.setenv("OPTOUT_WEB_PASSWORD", "pw")
     cli.main(["web"])
     assert bound[-1] == "0.0.0.0" and capsys.readouterr().err == ""
+
+
+def test_requests_ask_for_replies_at_the_tagged_address(env, monkeypatch):
+    from optout import config
+    from optout.send import build
+    cfg, con, people, sender = env
+    assert cfg.reply_address == "sender+optout@gmail.com"
+    msg = build(cfg, sender, "dpo@ukone.co.uk", "s", "b")
+    assert msg["From"] == "Alex Test <sender@gmail.com>"  # brokers match the sender to their records
+    assert msg["Reply-To"] == "Alex Test <sender+optout@gmail.com>"
+    for user, tag in [("sender@gmail.com", ""), ("sender+mine@gmail.com", "optout"), ("", "optout")]:
+        monkeypatch.setenv("GMAIL_USER", user)
+        monkeypatch.setenv("OPTOUT_REPLY_TAG", tag)
+        plain = config.load()
+        assert plain.reply_address == user
+        assert build(plain, sender, "dpo@ukone.co.uk", "s", "b")["Reply-To"] is None
+
+
+def test_gmail_filter_file(env, monkeypatch, capsys):
+    import xml.etree.ElementTree as ET
+    from optout import cli
+    ns = {"a": "http://www.w3.org/2005/Atom", "apps": "http://schemas.google.com/apps/2006"}
+
+    def filters():
+        cli.main(["gmail-filter"])
+        root = ET.fromstring(capsys.readouterr().out)
+        return [{p.get("name"): p.get("value") for p in e.findall("apps:property", ns)}
+                for e in root.findall("a:entry", ns)]
+
+    act = {"label": "optout", "shouldArchive": "true", "shouldNeverSpam": "true"}
+    assert filters() == [{"to": "sender+optout@gmail.com", **act}, {"subject": "optout", **act}]
+    monkeypatch.setenv("OPTOUT_REPLY_TAG", "")
+    assert filters() == [{"subject": "optout", **act}]
+
+
+class FakeGmail:
+    """Just enough of Gmail's IMAP for the inbox job: messages in All Mail, labels per message."""
+
+    def __init__(self, *raw):
+        self.msgs = {str(i + 1): m.encode() for i, m in enumerate(raw)}
+        self.labels = {uid: {"\\Inbox"} for uid in self.msgs}
+
+    def login(self, *a):
+        pass
+
+    def logout(self):
+        pass
+
+    def list(self):
+        return "OK", [b'(\\All \\HasNoChildren) "/" "[Gmail]/All Mail"']
+
+    def select(self, box):
+        return "OK", [b"1"]
+
+    def uid(self, cmd, *args):
+        import email
+        import re
+        if cmd == "SEARCH":
+            return "OK", [" ".join(self.msgs).encode()]
+        uids = args[0].decode() if isinstance(args[0], bytes) else args[0]
+        if cmd == "STORE":
+            op, names = args[1], set(re.findall(r'"([^"]+)"|(\\\w+)', args[2]))
+            names = {a or b for a, b in names}
+            self.labels[uids] = self.labels[uids] | names if op.startswith("+") else self.labels[uids] - names
+            return "OK", [b""]
+        out = []
+        for uid in uids.split(","):
+            raw = self.msgs[uid]
+            wanted = re.search(r"HEADER\.FIELDS \(([^)]*)\)", args[1])
+            if wanted:  # like the real server, send back only the headers that were asked for
+                msg = email.message_from_bytes(raw)
+                raw = "".join(f"{h}: {v}\r\n" for h in wanted.group(1).split() for v in msg.get_all(h, [])).encode()
+            out += [(f"{uid} (UID {uid} BODY[] {{{len(raw)}}}".encode(), raw), b")"]
+        return "OK", out
+
+
+def _mail(frm, to, subject, body, **headers):
+    extra = "".join(f"{k.replace('_', '-')}: {v}\n" for k, v in headers.items())
+    return f"From: {frm}\nTo: {to}\nSubject: {subject}\nMessage-ID: <{abs(hash((frm, subject, body)))}@test>\n{extra}\n{body}\n"
+
+
+def test_inbox_job_files_everything_sent_to_the_tagged_address(env, monkeypatch):
+    import imaplib
+    from optout import db, inbox, scheduler
+    cfg, con, people, sender = env
+    scheduler.ensure_requests(con, people)
+    ids = {(r["person"], r["broker"]): r["id"] for r in con.execute("SELECT * FROM requests")}
+    for rid in (ids["alex", "uk-one"], ids["sam", "uk-one"], ids["alex", "us-two"]):
+        db.set_state(con, rid, "sent", message_ids=f"<req{rid}@gmail.com>")
+    alex, sam, us = ids["alex", "uk-one"], ids["sam", "uk-one"], ids["alex", "us-two"]
+    tagged, plain = "sender+optout@gmail.com", "sender@gmail.com"
+    gmail = FakeGmail(
+        # 1, 2: our own requests as they sit in Sent Mail, whichever From Gmail kept
+        _mail(f"Alex Test <{plain}>", "dpo@ukone.co.uk", f"Erasure request [optout:{alex}]", "Dear DPO"),
+        _mail(f"Alex Test <{tagged}>", "privacy@ustwo.com", f"Deletion request [optout:{us}]", "Hello"),
+        # 3: a helpdesk on a domain we have never heard of, new subject, quoting our reference
+        _mail("Helpdesk <noreply@tickets.example.net>", tagged, "Case 48213 opened",
+              f'We have received your request and will respond within 30 days.\n\n> reference "optout:{us}"'),
+        # 4: same, but nothing ties it to a request and it wants ID
+        _mail("privacy@elsewhere.example.org", "Someone Else <x@example.org>", "Your privacy request",
+              "Please send a copy of your passport.", Delivered_To=tagged),
+        # 5: ordinary mail to the plain address is none of our business
+        _mail("friend@example.org", plain, "Lunch on Friday?", "Are you free? Please confirm."),
+        # 6: two open requests at this broker; the quoted reference says which one this answers
+        _mail("dpo@ukone.co.uk", tagged, "Your data",
+              f'We confirm your personal data has been deleted.\n\n> Please quote reference "optout:{sam}"'),
+    )
+    monkeypatch.setattr(imaplib, "IMAP4_SSL", lambda host: gmail)
+    out = inbox.poll(cfg, con)
+    state = {r["id"]: r["state"] for r in con.execute("SELECT * FROM requests")}
+    assert (state[alex], state[sam], state[us]) == ("sent", "confirmed", "acknowledged"), out
+    filed = {uid: labels for uid, labels in gmail.labels.items()}
+    assert filed["1"] == filed["2"] == filed["5"] == {"\\Inbox"}
+    assert filed["3"] == filed["6"] == {"optout"}
+    assert filed["4"] == {"optout", "optout/needs-you"}
+    assert inbox.poll(cfg, con) == []  # nothing is processed twice
+
+
+def _well_formed(page):
+    """Every tag the templates open is closed again, in order."""
+    from html.parser import HTMLParser
+    void = {"meta", "link", "input", "br", "hr", "img", "path", "rect"}
+    stack, bad = [], []
+
+    class Check(HTMLParser):
+        def handle_starttag(self, tag, attrs):
+            if tag not in void:
+                stack.append(tag)
+
+        def handle_endtag(self, tag):
+            if tag not in void and (not stack or stack.pop() != tag):
+                bad.append(tag)
+
+    Check().feed(page)
+    return not stack and not bad
+
+
+@pytest.fixture
+def web(env, monkeypatch):
+    from optout import web
+    monkeypatch.setattr(web, "cfg", env[0])
+    return web
+
+
+def test_dashboard_pages_render_in_every_state(env, web):
+    from optout import db, scheduler
+    cfg, con, people, sender = env
+    assert "No brokers match" not in web.index() and _well_formed(web.index())  # nothing sent yet
+    scheduler.ensure_requests(con, people)
+    ids = {(r["person"], r["broker"]): r["id"] for r in con.execute("SELECT * FROM requests")}
+    rid = ids["alex", "uk-one"]
+    db.log(con, rid, "sent", f"To: dpo@ukone.co.uk\nSubject: Erasure request [optout:{rid}]\n\nDear DPO")
+    db.set_state(con, rid, "sent", "to dpo@ukone.co.uk", sent_at=db.now(), due_at=scheduler._ts(30))
+    db.log(con, rid, "reply", "From: dpo@ukone.co.uk\nSubject: Re: Erasure request\nClass: needs_verification\n\n"
+                              "Confirm here: https://ukone.co.uk/c?t=1&u=2 <script>alert(1)</script>")
+    db.set_state(con, rid, "needs_verification", "verification link needs a human: https://ukone.co.uk/c?t=1&u=2.")
+    con.commit()
+
+    home = web.index()
+    assert "Confirmation links to click" in home and f'href="/r/{rid}"' in home and _well_formed(home)
+    assert "Forms to fill in by hand" in home  # people-site has no recipe
+    page = web.detail(rid)
+    assert 'class="btn btn-primary" href="https://ukone.co.uk/c?t=1&amp;u=2"' in page  # the link, minus the full stop
+    assert "<script>alert(1)</script>" not in page and "&lt;script&gt;alert(1)" in page
+    assert "Read as:</b> Click link" in page and _well_formed(page)
+
+    for state in web.LABELS:  # the ICO draft, the by-hand details and the plain cases all go through here
+        for r in (rid, ids["sam", "people-site"]):
+            con.execute("UPDATE requests SET state=? WHERE id=?", (state, r))
+            con.commit()
+            page = web.detail(r)
+            assert web.LABELS[state] in page and _well_formed(page), state
+    con.execute("UPDATE requests SET state='overdue' WHERE id=?", (rid,))
+    con.execute("UPDATE requests SET state='manual_todo' WHERE id=?", (ids["sam", "people-site"],))
+    con.commit()
+    assert "ICO complaint draft" in web.detail(rid)
+    by_hand = web.detail(ids["sam", "people-site"])
+    assert "Sam Test" in by_hand and 'data-copy="d1"' in by_hand and "I submitted it" in by_hand
+
+    for query in ({"v": "all"}, {"v": "all", "s": "needs"}, {"s": "overdue"}, {"q": "ukone"}, {"j": "us"}, {"v": "todo"}):
+        assert _well_formed(web.index(**query)), query
+    assert "UK One Ltd" in web.index(s="overdue") and "US Two Inc" not in web.index(s="overdue")
+    assert "UK One Ltd" in web.index(s="needs") and "No brokers match" in web.index(q="nothing-like-this")
+
+
+def test_mail_page_offers_the_gmail_filters(env, web):
+    import xml.etree.ElementTree as ET
+    page = web.mail()
+    assert "sender+optout@gmail.com" in page and "/mail/optout-gmail-filters.xml" in page and _well_formed(page)
+    download = web.gmail_filters()
+    assert "attachment" in download.headers["content-disposition"]
+    assert len(ET.fromstring(download.body).findall("{http://www.w3.org/2005/Atom}entry")) == 2

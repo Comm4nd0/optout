@@ -42,12 +42,42 @@ Three jobs run on timers:
   across the day: 40 emails a day between 09:00 and 21:00 by default, so the first pass through the
   list takes a few weeks.
 - **inbox** (every 15 minutes) reads Gmail over IMAP and matches replies to requests by the
-  `[optout:123]` tag in the subject, then by thread, then by sender domain. A keyword classifier
-  decides what the reply means; anything it cannot place goes to "Review reply". Matched mail is
-  filed under the Gmail label `optout` and taken out of your inbox, and mail that needs you also
-  gets `optout/needs-you`. Confirmation links are opened automatically, but only when they point at
-  the broker's domain or the domain the reply came from.
+  `[optout:123]` tag in the subject, then by thread, then by sender domain, then by the reference
+  quoted in the body. A keyword classifier decides what the reply means; anything it cannot place
+  goes to "Review reply". Matched mail is filed under the Gmail label `optout` and taken out of
+  your inbox, and mail that needs you also gets `optout/needs-you`. Confirmation links are opened
+  automatically, but only when they point at the broker's domain or the domain the reply came from.
 - **forms** (daily) submits web forms for the brokers that have a recipe.
+
+The dashboard shows how far along everything is, lists what needs you grouped by what you have to
+do, and keeps the full history of each request with the emails in both directions.
+
+## Keeping replies out of your inbox
+
+Several hundred companies answering, most of them more than once, is a lot of mail. Two things keep
+it away from you:
+
+- Every request asks for replies at `you+optout@gmail.com` (a `Reply-To` header; the request still
+  comes from your plain address). Gmail delivers that to the same mailbox, but the address marks
+  the mail as an answer to one of these requests, so the inbox job files it whoever sent it.
+- A pair of Gmail filters makes those answers skip the inbox altogether, so nothing sits there for
+  up to 15 minutes and your phone stays quiet. They catch mail sent to the `+optout` address and
+  mail with `optout` in the subject, put it under the label `optout`, and keep it out of spam. The
+  inbox job reads it there exactly as before.
+
+Gmail filters cannot be created with an app password, so importing them is a one-off job for you:
+
+1. Get the filter file: **Mail → Download the Gmail filters** on the dashboard, or
+   `optout gmail-filter > optout-gmail-filters.xml`.
+2. In Gmail on a computer open **Settings → See all settings → Filters and blocked addresses**.
+3. Choose **Import filters**, pick the file, then **Open file** and **Create filters**. Tick
+   **Apply new filters to existing email** if answers are already sitting in the inbox, or run
+   `optout refile`.
+
+What still reaches the inbox first: bounce messages, and the occasional answer that ignores the
+reply address and changes the subject. The inbox job clears those within 15 minutes if it can tell
+they belong to a request or come from a broker. Set `OPTOUT_REPLY_TAG=` (empty) to go back to
+plain replies; the subject filter and the 15-minute filing still work.
 
 ## The broker list
 
@@ -130,7 +160,8 @@ Then:
    one opens it to the network.
 4. Check the result: `optout-run sync`, then `optout-run preview` and read a few of the emails in
    `/var/lib/optout/outbox/`. The dashboard is on port 8080; the user name is `admin`.
-5. When you are happy, set `OPTOUT_DRY_RUN=false` in `/etc/optout/optout.env` and run
+5. Import the [Gmail filters](#keeping-replies-out-of-your-inbox) so the answers skip your inbox.
+6. When you are happy, set `OPTOUT_DRY_RUN=false` in `/etc/optout/optout.env` and run
    `systemctl restart optout-web`.
 
 `optout-run <command>` runs any [command](#commands) with the service's settings.
@@ -183,6 +214,7 @@ Settings are environment variables. On a server they live in `/etc/optout/optout
 | `OPTOUT_DRY_RUN` | `true` | While true, no email is sent and no form is submitted |
 | `GMAIL_USER` | | Gmail address that sends the requests and receives the replies |
 | `GMAIL_APP_PASSWORD` | | App password for that account |
+| `OPTOUT_REPLY_TAG` | `optout` | Replies are asked for at `you+TAG@gmail.com`. Empty means your plain address |
 | `OPTOUT_DAILY_LIMIT` | `40` | Emails per 24 hours, reminders included |
 | `OPTOUT_SEND_HOURS` | `9-21` | Sending window, in the machine's local time |
 | `OPTOUT_REPLY_DAYS` | `30` | Days to wait before the reminder |
@@ -208,6 +240,7 @@ Settings are environment variables. On a server they live in `/etc/optout/optout
 | `optout cycle` | One round of creating, sending and reminding (the hourly job) |
 | `optout inbox [--days N]` | Read and act on replies from the last N days (default 7) |
 | `optout refile [--days N]` | Label and archive broker mail already sitting in the inbox |
+| `optout gmail-filter` | Print the Gmail filter file that makes replies skip the inbox |
 | `optout forms [--limit N] [--only SLUG] [--dry-run]` | Submit queued web forms. `--dry-run` fills each form and stops before the submit button |
 | `optout web` | Run the dashboard |
 | `optout check` | Print a Checkmk local-check line: stale or failing jobs, and how much needs you |
@@ -256,7 +289,7 @@ To change them, copy the directory, edit, and point `OPTOUT_TEMPLATES` at your c
   them; the `.gitignore` covers the usual names.
 - A Gmail app password gives full access to the mailbox. The inbox job reads the headers of all
   recent mail to find replies, and reads the body only of mail from a broker or a privacy-request
-  service.
+  service, or sent to the `+optout` reply address.
 - The dashboard shows those personal details and can change request states. Without a password
   it only answers on the machine it runs on. With one it listens on every interface by default
   and speaks plain HTTP, so keep it on a network you trust and do not expose it to the internet.

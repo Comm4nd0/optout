@@ -1,4 +1,4 @@
-"""optout <command>: sync | cycle | inbox | refile | preview | forms | status | web | check"""
+"""optout <command>: sync | cycle | inbox | refile | gmail-filter | preview | forms | status | web | check"""
 import argparse
 import sys
 from datetime import datetime, timedelta, timezone
@@ -48,6 +48,11 @@ def cmd_refile(a):
     cfg, con, _, _ = _ctx()
     for line in inbox.refile(cfg, con, a.days):
         print(line)
+
+
+def cmd_gmail_filter(a):
+    from . import inbox
+    sys.stdout.write(inbox.gmail_filters(config.load()))
 
 
 def cmd_preview(a):
@@ -132,6 +137,7 @@ def main(argv=None):
     s = sub.add_parser("refile")
     s.add_argument("--days", type=int, default=60)
     s.set_defaults(f=cmd_refile)
+    sub.add_parser("gmail-filter").set_defaults(f=cmd_gmail_filter)
     s = sub.add_parser("preview")
     s.add_argument("--limit", type=int, default=5)
     s.set_defaults(f=cmd_preview)

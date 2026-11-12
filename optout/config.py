@@ -27,6 +27,7 @@ class Config:
     state_dir: Path
     gmail_user: str
     gmail_password: str
+    reply_tag: str
     daily_limit: int
     send_hours: tuple[int, int]
     dry_run: bool
@@ -36,6 +37,15 @@ class Config:
     web_password: str
     web_host: str
     web_port: int
+
+    @property
+    def reply_address(self) -> str:
+        """Where brokers are asked to reply: you+optout@gmail.com, which reaches the same mailbox
+        but lets one Gmail filter keep the answers out of the inbox."""
+        user, _, domain = self.gmail_user.partition("@")
+        if not (domain and self.reply_tag) or "+" in user:
+            return self.gmail_user
+        return f"{user}+{self.reply_tag}@{domain}"
 
     @property
     def web_bind(self) -> str:
@@ -59,6 +69,7 @@ def load() -> Config:
         state_dir=state,
         gmail_user=e("GMAIL_USER", ""),
         gmail_password=e("GMAIL_APP_PASSWORD", "").replace(" ", ""),
+        reply_tag=e("OPTOUT_REPLY_TAG", "optout").strip(),
         daily_limit=int(e("OPTOUT_DAILY_LIMIT", "40")),
         send_hours=(int(h[0]), int(h[1])),
         dry_run=_bool(e("OPTOUT_DRY_RUN", "true")),

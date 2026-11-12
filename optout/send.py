@@ -8,6 +8,8 @@ from pathlib import Path
 def build(cfg, sender, to, subject, body, attachments=(), in_reply_to=None):
     msg = EmailMessage()
     msg["From"] = f'{sender["full_name"]} <{cfg.gmail_user or "dry-run@localhost"}>'
+    if cfg.reply_address != cfg.gmail_user:  # same mailbox, but a Gmail filter can catch the answers
+        msg["Reply-To"] = f'{sender["full_name"]} <{cfg.reply_address}>'
     msg["To"] = to
     msg["Subject"] = subject
     msg["Date"] = formatdate(localtime=True)

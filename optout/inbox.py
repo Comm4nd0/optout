@@ -4,9 +4,10 @@ import email.policy
 import html
 import imaplib
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from email.header import decode_header, make_header
-from email.utils import parseaddr
+from email.utils import getaddresses, parseaddr
+from xml.sax.saxutils import escape, quoteattr
 
 from . import db, scheduler, verify
 from .classify import classify
@@ -21,6 +22,7 @@ PORTAL_DOMAINS = ("onetrust.com", "transcend.io", "trustarc.com", "ketch.com", "
 SHARED_DOMAINS = {"gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "live.com", "yahoo.com",
                   "icloud.com", "aol.com", "protonmail.com", "proton.me", "zendesk.com"}
 PORTALS = re.compile(r"(^|\.)(" + "|".join(map(re.escape, PORTAL_DOMAINS)) + r")$")
+FIELDS = "FROM TO CC DELIVERED-TO SUBJECT IN-REPLY-TO REFERENCES"
 QUOTE_CUT = re.compile(
     r"^\s*(On\s[\s\S]{5,200}?wrote:|-{2,}\s*Original Message\s*-{2,}|_{10,}|From: .+|-+ ?Forwarded message ?-+"
     r"|Dear Data Protection Officer,|I am writing (to exercise|on behalf))", re.I | re.M)
@@ -28,6 +30,53 @@ QUOTE_CUT = re.compile(
 
 def _hdr(v):
     return str(make_header(decode_header(v))) if v else ""
+
+
+def _plain(addr: str) -> str:
+    """you+tag@gmail.com -> you@gmail.com"""
+    user, at, domain = addr.lower().partition("@")
+    return user.split("+", 1)[0] + at + domain
+
+
+def to_reply_address(cfg, hmsg) -> bool:
+    """Sent to the tagged address that only our own requests give out, so it answers one of them."""
+    tagged = cfg.reply_address.lower()
+    if not tagged or tagged == cfg.gmail_user.lower():
+        return False
+    to = [_hdr(hmsg[h]) for h in ("To", "Cc", "Delivered-To") if hmsg[h]]  # no blanks: getaddresses is strict
+    return any(addr.lower() == tagged for _, addr in getaddresses(to))
+
+
+def by_tag(con, text):
+    """The request whose 'optout:123' reference appears in the text, if any."""
+    m = TAG.search(text)
+    return con.execute("SELECT * FROM requests WHERE id=?", (int(m.group(1)),)).fetchone() if m else None
+
+
+def gmail_filters(cfg) -> str:
+    """A file for Gmail's 'Import filters'. Answers to our requests then skip the inbox and go
+    straight under the label; the inbox job still reads them there."""
+    rules = [("subject", "optout")]  # the [optout:123] tag in our subjects survives in most replies
+    if cfg.reply_address != cfg.gmail_user:
+        rules.insert(0, ("to", cfg.reply_address))
+    entries = "".join(f"""  <entry>
+    <category term="filter"></category>
+    <title>Mail Filter</title>
+    <content></content>
+    <apps:property name="{name}" value={quoteattr(value)}/>
+    <apps:property name="label" value="{LABEL}"/>
+    <apps:property name="shouldArchive" value="true"/>
+    <apps:property name="shouldNeverSpam" value="true"/>
+  </entry>
+""" for name, value in rules)
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:apps="http://schemas.google.com/apps/2006">
+  <title>Mail Filters</title>
+  <id>tag:mail.google.com,2008:filters:</id>
+  <updated>{datetime.now(timezone.utc):%Y-%m-%dT%H:%M:%SZ}</updated>
+  <author><name>optout</name><email>{escape(cfg.gmail_user)}</email></author>
+{entries}</feed>
+"""
 
 
 def body_text(msg) -> str:
@@ -68,11 +117,9 @@ def _all_mail(imap) -> str:
 
 def match_request(con, frm_domain, subject, refs):
     """-> request row or None. Tag in subject > our Message-ID in refs > sender domain."""
-    m = TAG.search(subject)
-    if m:
-        r = con.execute("SELECT * FROM requests WHERE id=?", (int(m.group(1)),)).fetchone()
-        if r:
-            return r
+    r = by_tag(con, subject)
+    if r:
+        return r
     for ref in refs:
         r = con.execute("SELECT * FROM requests WHERE instr(message_ids, ?) > 0 ORDER BY id DESC LIMIT 1",
                         (ref,)).fetchone()
@@ -146,10 +193,10 @@ def refile(cfg, con, days=60) -> list[str]:
         imap.select(_all_mail(imap))
         _, data = imap.uid("SEARCH", "X-GM-RAW", f'"label:{LABEL} OR (in:inbox newer_than:{days}d)"')
         for uid in data[0].split():
-            _, hd = imap.uid("FETCH", uid, "(BODY.PEEK[HEADER.FIELDS (FROM SUBJECT IN-REPLY-TO REFERENCES)])")
+            _, hd = imap.uid("FETCH", uid, f"(BODY.PEEK[HEADER.FIELDS ({FIELDS})])")
             hmsg = email.message_from_bytes(hd[0][1])
             frm = parseaddr(_hdr(hmsg["From"]))[1].lower()
-            if frm == cfg.gmail_user.lower():
+            if _plain(frm) == _plain(cfg.gmail_user):
                 continue
             subject = _hdr(hmsg["Subject"])
             refs = (hmsg["In-Reply-To"] or "").split() + (hmsg["References"] or "").split()
@@ -160,7 +207,7 @@ def refile(cfg, con, days=60) -> list[str]:
             elif req is not None:
                 cur = con.execute("SELECT state FROM requests WHERE id=?", (req["id"],)).fetchone()["state"]
                 needs = cur in db.NEEDS_YOU
-            elif known_sender(con, frm_domain):
+            elif to_reply_address(cfg, hmsg) or known_sender(con, frm_domain):
                 _, full = imap.uid("FETCH", uid, "(BODY.PEEK[])")
                 msg = email.message_from_bytes(full[0][1], policy=email.policy.default)
                 needs = classify(subject + "\n" + strip_quoted(body_text(msg)))[0] in db.NEEDS_YOU
@@ -187,7 +234,7 @@ def poll(cfg, con, days=7) -> list[str]:
         headers = []
         for i in range(0, len(uids), 200):
             chunk = b",".join(uids[i:i + 200]).decode()
-            _, hd = imap.uid("FETCH", chunk, "(UID BODY.PEEK[HEADER.FIELDS (MESSAGE-ID FROM SUBJECT IN-REPLY-TO REFERENCES)])")
+            _, hd = imap.uid("FETCH", chunk, f"(UID BODY.PEEK[HEADER.FIELDS (MESSAGE-ID {FIELDS})])")
             for item in hd:
                 if isinstance(item, tuple):
                     m = re.search(rb"UID (\d+)", item[0])
@@ -197,7 +244,7 @@ def poll(cfg, con, days=7) -> list[str]:
             if con.execute("SELECT 1 FROM seen_mail WHERE msgid=?", (mid,)).fetchone():
                 continue
             frm = parseaddr(_hdr(hmsg["From"]))[1].lower()
-            if frm == cfg.gmail_user.lower():
+            if _plain(frm) == _plain(cfg.gmail_user):
                 con.execute("INSERT OR IGNORE INTO seen_mail VALUES (?,?)", (mid, db.now()))
                 continue
             subject = _hdr(hmsg["Subject"])
@@ -205,14 +252,16 @@ def poll(cfg, con, days=7) -> list[str]:
             frm_domain = frm.rsplit("@", 1)[-1] if "@" in frm else ""
             req = match_request(con, frm_domain, subject, refs)
             con.execute("INSERT OR IGNORE INTO seen_mail VALUES (?,?)", (mid, db.now()))
-            if req is None and not known_sender(con, frm_domain):
+            if req is None and not (to_reply_address(cfg, hmsg) or known_sender(con, frm_domain)):
                 continue
             _, full = imap.uid("FETCH", uid, "(BODY.PEEK[])")
             msg = email.message_from_bytes(full[0][1], policy=email.policy.default)
             text = body_text(msg)
             reply = strip_quoted(text)
             _file(imap, uid)
-            if req is None:  # portal or closed-broker mail we can't tie to a request: file it, flag it if it wants something
+            if req is None or isinstance(req, dict):  # the reference we ask them to quote settles it
+                req = by_tag(con, text) or req
+            if req is None:  # an answer we can't tie to a request: file it, flag it if it wants something
                 label, _ = classify(subject + "\n" + reply)
                 if label in db.NEEDS_YOU:
                     imap.uid("STORE", uid, "+X-GM-LABELS", f'("{NEEDS_LABEL}")')
