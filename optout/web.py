@@ -55,10 +55,10 @@ GROUP_OF = {state: key for key, (_, _, states) in GROUPS.items() for state in st
 TODO = {
     "needs_verification": ("Confirmation links to click",
                            "The broker sent a link that confirms the request, and it could not be opened "
-                           "automatically. Open it yourself."),
+                           "automatically. Open it yourself, then press “I opened the link”."),
     "needs_id": ("ID requested",
                  "The broker asked for proof of identity. Nothing is ever sent for you: reply to their email "
-                 "yourself if you are happy to, or skip the broker."),
+                 "yourself if you are happy to and press “I replied to them”, or skip the broker."),
     "needs_review": ("Replies to read",
                      "The reply could not be read automatically. Read it and record what it means."),
     "refused": ("Refused", "The broker declined. UK and EU brokers come with a complaint draft for the ICO."),
@@ -68,6 +68,9 @@ TODO = {
                     "No recipe can submit these. Open the form, paste in the details, then press "
                     "“I submitted it”."),
 }
+# your part is done and the broker has to move next: state -> what the button that says so is called
+WAITING = {"needs_verification": "I opened the link", "needs_id": "I replied to them",
+           "needs_review": "Keep waiting", "refused": "I replied to them", "overdue": "I chased them"}
 GROUP_ROWS = 60  # rows shown per 'needs you' group before linking to the full list
 EVENTS = {"sent": ("Request sent", "info"), "chase_sent": ("Reminder sent", "warn"),
           "reply": ("Reply received", "info"), "verify_link": ("Confirmation link tried", "muted")}
@@ -240,7 +243,7 @@ pre{white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1px s
 padding:12px 14px;margin:8px 0 0;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) 330px;grid-template-rows:auto 1fr;gap:16px 20px;align-items:start;
 grid-template-areas:"main act" "main info"}.c-main{grid-area:main}.c-act{grid-area:act}.c-info{grid-area:info}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.actions input,.actions .btn-primary{grid-column:1/-1}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hint{margin:10px 0 0}.actions input,.actions .btn-primary{grid-column:1/-1}
 dl.kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:7px 16px;margin:0}
 .kv dt{color:var(--mute)}.kv dd{margin:0;word-break:break-word}
 .tl{list-style:none;margin:6px 0 0;padding:0}
@@ -359,7 +362,8 @@ Open the form, search for {{ p.full_name }} and submit the removal. Details to p
 </li>{% else %}<li class="small">No events yet.</li>{% endfor %}</ol></section>
 <section class="card c-act"><h2>Record what happened</h2><form method="post" action="/r/{{ r.id }}" class="actions">
 <input name="note" placeholder="Note (optional)" aria-label="Note">
-{% for val, text in actions %}<button name="action" value="{{ val }}" class="{{ 'btn-primary' if loop.first else 'btn-quiet' if val == 'skipped' }}">{{ text }}</button>{% endfor %}</form></section>
+{% for val, text in actions %}<button name="action" value="{{ val }}" class="{{ 'btn-primary' if loop.first else 'btn-quiet' if val == 'skipped' }}">{{ text }}</button>{% endfor %}</form>
+{% if waiting %}<p class="small hint">“{{ waiting }}” puts the request back to waiting on the broker. They get {{ reply_days }} more days, then {{ "a reminder is sent" if b.method == "email" else "it comes back as overdue" }}.</p>{% endif %}</section>
 <section class="card c-info"><h2>Broker</h2><dl class="kv">
 <dt>Domain</dt><dd>{{ b.domain or "–" }}</dd><dt>Region</dt><dd>{{ b.jurisdiction|upper }}</dd><dt>Method</dt><dd>{{ methods.get(b.method, b.method) }}</dd>
 <dt>Contact</dt><dd>{{ contact(b.contact) }}</dd>
@@ -481,6 +485,18 @@ ACTIONS = {
 }
 
 
+def _actions(state, method) -> list:
+    """The buttons on a request's page, the likeliest first."""
+    out = [("waiting", WAITING[state])] if state in WAITING else []
+    for key, text in ACTIONS.items():
+        if key == "submitted" and (method == "email" or state in WAITING):
+            continue  # nothing to submit, or the button above already says it
+        if key == "requeue" and method != "email":
+            continue
+        out.append((key, text))
+    return out
+
+
 @app.get("/r/{rid}", response_class=HTMLResponse, dependencies=[Depends(auth)])
 def detail(rid: int):
     con, people, sender = ctx()
@@ -502,19 +518,24 @@ def detail(rid: int):
     if r["state"] == "needs_verification":
         found = next((URL_RE.search(e["detail"]) for e in events if e["type"] == "state:needs_verification"), None)
         link = found.group(0).rstrip(".,;") if found else None
-    actions = [(k, v) for k, v in ACTIONS.items()
-               if not (k == "submitted" and b["method"] == "email") and not (k == "requeue" and b["method"] != "email")]
     return _page("detail", r=r, b=b, p=p, events=[_event(e) for e in events], ico=ico, details=_details(p),
-                 actions=actions, guide=TODO.get(r["state"]), link=link, reply_days=cfg.reply_days)
+                 actions=_actions(r["state"], b["method"]), guide=TODO.get(r["state"]), link=link,
+                 waiting=WAITING.get(r["state"]), reply_days=cfg.reply_days)
 
 
 @app.post("/r/{rid}", dependencies=[Depends(auth)])
 def act(rid: int, action: str = Form(...), note: str = Form("")):
     con, _, _ = ctx()
-    if not con.execute("SELECT 1 FROM requests WHERE id=?", (rid,)).fetchone():
+    r = con.execute("SELECT state FROM requests WHERE id=?", (rid,)).fetchone()
+    if not r:
         raise HTTPException(404)
     note = f"by hand: {note}".strip(": ")
-    if action == "submitted":
+    if action == "waiting":
+        # Only from a state that was waiting for you: if the inbox job has moved the request on
+        # since the page was loaded (say, to Removed), that newer answer stands.
+        if r["state"] in WAITING:
+            db.set_state(con, rid, "acknowledged", note, due_at=scheduler._ts(cfg.reply_days))
+    elif action == "submitted":
         db.set_state(con, rid, "acknowledged", note, sent_at=db.now(), due_at=scheduler._ts(cfg.reply_days))
     elif action in ("confirmed", "no_data", "skipped"):
         scheduler.close(con, rid, action, note)

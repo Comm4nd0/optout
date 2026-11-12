@@ -457,6 +457,41 @@ def test_dashboard_pages_render_in_every_state(env, web):
     assert "UK One Ltd" in web.index(s="needs") and "No brokers match" in web.index(q="nothing-like-this")
 
 
+def test_done_my_part_puts_a_request_back_to_waiting(env, web):
+    from optout import db, scheduler
+    cfg, con, people, sender = env
+    scheduler.ensure_requests(con, people)
+    ids = {(r["person"], r["broker"]): r["id"] for r in con.execute("SELECT * FROM requests")}
+    rid, form = ids["alex", "uk-one"], ids["sam", "people-site"]
+    db.set_state(con, rid, "sent", "to dpo@ukone.co.uk", sent_at="2026-01-05T09:00:00+00:00", due_at=scheduler._ts(-3))
+    con.commit()
+    assert 'value="waiting"' not in web.detail(rid)  # already waiting on the broker: nothing to hand back
+
+    for state, button in web.WAITING.items():
+        con.execute("UPDATE requests SET state=?, due_at=? WHERE id IN (?,?)", (state, scheduler._ts(-3), rid, form))
+        con.commit()
+        page = web.detail(rid)
+        assert f'<button name="action" value="waiting" class="btn-primary">{button}</button>' in page, state
+        assert "then a reminder is sent" in page and _well_formed(page)
+        by_form = web.detail(form)  # a web-form broker gets the same button instead of "I submitted it"
+        assert f">{button}</button>" in by_form and "I submitted it" not in by_form
+        assert "then it comes back as overdue" in by_form
+        assert web.act(rid, action="waiting", note="").status_code == 303
+        r = con.execute("SELECT * FROM requests WHERE id=?", (rid,)).fetchone()
+        assert (r["state"], r["sent_at"]) == ("acknowledged", "2026-01-05T09:00:00+00:00"), state
+        assert scheduler._ts(cfg.reply_days - 1) < r["due_at"] <= scheduler._ts(cfg.reply_days)  # a fresh deadline
+    last = con.execute("SELECT * FROM events WHERE request_id=? ORDER BY id DESC", (rid,)).fetchone()
+    assert (last["type"], last["detail"]) == ("state:acknowledged", "by hand")
+    assert web.index(s="waiting").count(f'href="/r/{rid}"') == 1 and f'href="/r/{rid}"' not in web.index(v="todo")
+    assert scheduler.chase_and_escalate(cfg, con, people, sender, 5, dry_run=True) == []  # not chased straight away
+
+    # pressed on a stale page: the inbox job closed the request in the meantime, and that stands
+    scheduler.close(con, rid, "confirmed", "matched 'has been deleted'")
+    con.commit()
+    assert web.act(rid, action="waiting", note="clicked it").status_code == 303
+    assert con.execute("SELECT state FROM requests WHERE id=?", (rid,)).fetchone()["state"] == "confirmed"
+
+
 def test_mail_page_offers_the_gmail_filters(env, web):
     import xml.etree.ElementTree as ET
     page = web.mail()

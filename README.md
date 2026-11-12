@@ -50,7 +50,9 @@ Three jobs run on timers:
 - **forms** (daily) submits web forms for the brokers that have a recipe.
 
 The dashboard shows how far along everything is, lists what needs you grouped by what you have to
-do, and keeps the full history of each request with the emails in both directions.
+do, and keeps the full history of each request with the emails in both directions. When you have
+done your part by hand (opened a confirmation link, replied to a request for ID), the button on the
+request's page puts it back to waiting on the broker, with a fresh 30-day deadline.
 
 ## Keeping replies out of your inbox
 
