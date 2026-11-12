@@ -1,0 +1,14 @@
+name: Supplier.io
+domain: supplier.io
+jurisdiction: us
+method: email
+contact: dj.merino@supplier.io
+alt_contact: https://supplier.io/privacy-policy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

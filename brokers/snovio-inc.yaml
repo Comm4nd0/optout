@@ -1,0 +1,14 @@
+name: Snovio Inc
+domain: snov.io
+jurisdiction: us
+method: email
+contact: v.budkevych@snov.io
+alt_contact: https://snov.io/do-not-sell-my-personal-information; https://snov.io/privacy-policy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

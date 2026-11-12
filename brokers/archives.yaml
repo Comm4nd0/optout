@@ -1,0 +1,15 @@
+name: Archives
+domain: archives.com
+jurisdiction: us
+method: form
+contact: https://www.archives.com/Optout
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: To find your information, you must sign up for a free trial (and then cancel). Then, opt out if
+  you found your data.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

@@ -1,0 +1,15 @@
+name: FreePeopleDirectory
+domain: freepeopledirectory.com
+jurisdiction: us
+method: form
+contact: https://www.spokeo.com/optout
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your information. If you find it, you can opt out on Spokeo’s opt-out page. Make sure
+  to scroll down to the grammatically incorrect “opt out your information” section.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

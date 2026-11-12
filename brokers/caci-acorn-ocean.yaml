@@ -1,0 +1,14 @@
+name: CACI (Acorn / Ocean)
+domain: caci.co.uk
+method: email
+contact: compliance@caci.co.uk
+alt_contact: dpo@caci.co.uk
+needs_id: true
+source: https://www.caci.co.uk/data-privacy/privacy-policy/
+notes: Ocean lifestyle database. May need to confirm identity.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

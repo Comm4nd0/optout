@@ -1,0 +1,17 @@
+name: Intelius
+domain: intelius.com
+jurisdiction: us
+method: form
+contact: https://suppression.peopleconnect.us/login
+alt_contact: support@mailer.intelius.com
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: Find your information. Opt out by emailing <support@mailer.intelius.com>, calling 1-888-245-1655,
+  or filling out a form.  If you’re told that Intelius can't find your account, you may need to confirm
+  your mailing address, phone number, old email addresses, or other information via email. (As always,
+  make sure Intelius already has the information before providing it.) Intelius owns Addresses.com, A
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

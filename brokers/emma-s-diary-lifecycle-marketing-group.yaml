@@ -1,0 +1,14 @@
+name: Emma's Diary (Lifecycle Marketing Group)
+domain: emmasdiary.co.uk
+method: form
+contact: https://dsar.emmasdiary.co.uk/
+alt_contact: dpo@everydayhealth.com
+needs_id: true
+source: https://www.emmasdiary.co.uk/contact-legal/privacy-notice
+notes: Baby-club lead generation for advertisers.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,17 @@
+name: Facecheck
+domain: facecheck.id
+jurisdiction: us
+method: form
+contact: https://facecheck.id/Face-Search/RemoveMyPhotos
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Facecheck.id is reverse image search software that uses an uploaded image to locate your face across
+  in photos and videos on major social media platforms. If this type of search is something you are concerned
+  about, you can remove your face from its search engine by searching for your image, uploading a driver’s
+  license or ID card (you can hide your name, address and ID number) or a selfie with yo
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

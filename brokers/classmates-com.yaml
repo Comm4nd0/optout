@@ -1,0 +1,14 @@
+name: Classmates.com
+domain: classmates.com
+jurisdiction: us
+method: manual
+contact: https://help.classmates.com/hc/en-us/articles/115002224171-How-can-I-cancel-my-membership-
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Cancel your free or paid membership following these instructions.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

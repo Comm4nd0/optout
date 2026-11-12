@@ -1,0 +1,15 @@
+name: TransUnion UK (Callcredit Marketing)
+domain: transunion.co.uk
+method: email
+contact: ukconsumer@transunion.com
+alt_contact: ukdpo@transunion.com
+needs_id: false
+source: https://www.transunion.co.uk/legal/privacy-centre/pc-marketing-services
+notes: Sells its copy of the open register for marketing. Opt-out of marketing services goes on their
+  suppression list (up to 30 days).
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

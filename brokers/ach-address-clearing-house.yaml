@@ -1,0 +1,14 @@
+name: ACH, Address Clearing House
+domain: achcoop.com
+jurisdiction: us
+method: email
+contact: privacy@achcoop.com
+alt_contact: https://www.achcoop.com/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

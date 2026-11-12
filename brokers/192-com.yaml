@@ -1,0 +1,15 @@
+name: 192.com
+domain: 192.com
+method: form
+contact: https://www.192.com/c01/new-request/
+alt_contact: feedback@192.com
+needs_id: true
+source: https://www.192.com/misc/privacy-policy/
+notes: Electoral roll and directory search. Online form plus an email confirmation link; removal in about
+  48h. Records come back if you stay on the open register.
+category: people-search
+recheck_months: 3
+jurisdiction: uk
+priority: 1
+generated: true
+enabled: true

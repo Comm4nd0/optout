@@ -1,0 +1,10 @@
+[Unit]
+Description=optout: create, send, chase and re-request
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/optout/optout.env
+ExecStart=/opt/optout/.venv/bin/optout cycle
+TimeoutStartSec=30min

@@ -1,0 +1,18 @@
+name: InfoTracer; GoodCar; Propertychecker; EntityCheck; Sentinex; Courtcasefinder; Statecourts; Thepublicindex;
+  IDStrong; CourtRecords; StateRecords; RecordsFinder
+domain: org; recordsfinder.com
+jurisdiction: us
+method: email
+contact: compliance@infopay.com
+alt_contact: https://www.infopay.com/privacy; https://propertychecker.com/optout; https://recordsfinder.com/optout/;
+  https://sentinex.com/optout; https://www.statecourts.org/optout/; https://staterecords.org/optout; https://thepublicindex.org/optout;
+  https://courtcasefinder.com/optout; https://courtrecords.us/optout/; https://entitycheck.com/optout;
+  https://goodcar.com/optout; https://members.idstrong.com/opt-out/; https://infotracer.com/optout/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

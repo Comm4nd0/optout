@@ -1,0 +1,4 @@
+#!/bin/bash
+# optout-run <command...>: run the CLI with the service environment
+set -a; . /etc/optout/optout.env; set +a
+exec /opt/optout/.venv/bin/optout "$@"

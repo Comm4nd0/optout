@@ -1,0 +1,15 @@
+name: United States Phone Book
+domain: unitedstatesphonebook.com
+jurisdiction: us
+method: manual
+contact: https://www.unitedstatesphonebook.com/search.php
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your information. If your address is listed and you want it removed, enter the telephone
+  number and zip code listed on the above site in this page.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

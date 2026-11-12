@@ -1,0 +1,15 @@
+name: InfoTracer
+domain: infotracer.com
+jurisdiction: us
+method: form
+contact: https://infotracer.com/optout/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Find your information and opt out by filling out the form. You can also mail in a different form
+  or fax it to 1-617-933-9946.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

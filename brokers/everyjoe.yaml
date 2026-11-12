@@ -1,0 +1,14 @@
+name: EveryJoe
+domain: everyjoe.com
+jurisdiction: us
+method: form
+contact: https://www.everyjoe.com/do-not-sell/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Look for your information and insert the copied link into the opt-out page.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

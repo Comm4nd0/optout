@@ -1,0 +1,14 @@
+name: The Org
+domain: theorg.com
+jurisdiction: us
+method: email
+contact: privacy@theorg.com
+alt_contact: https://theorg.com/do-not-sell
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

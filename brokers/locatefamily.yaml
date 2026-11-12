@@ -1,0 +1,14 @@
+name: LocateFamily
+domain: locatefamily.com
+method: form
+contact: https://www.locatefamily.com/removal.html
+alt_contact: ''
+needs_id: false
+source: https://www.locatefamily.com/privacy_policy.html
+notes: Remove with the bin icon on your listing; https://www.locatefamily.com/removal2.html is the fallback.
+category: people-search
+recheck_months: 3
+jurisdiction: uk
+priority: 1
+generated: true
+enabled: true

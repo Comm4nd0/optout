@@ -1,0 +1,14 @@
+name: GBG (GB Group) incl. Loqate
+domain: gbgplc.com
+method: email
+contact: Privacy.Rights@gbg.com
+alt_contact: DPO@gbgplc.com
+needs_id: true
+source: https://www.loqate.com/en-gb/products-services-privacy-notice/
+notes: Identity verification and address data.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Captiv8 Inc.
+domain: captiv8.io
+jurisdiction: us
+method: email
+contact: privacy@captiv8.io
+alt_contact: https://captiv8.io/policy/; https://captiv8.io/policy/opt-out/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Complete Medical Lists, Inc.
+domain: completemedicallists.com
+jurisdiction: us
+method: email
+contact: tburnell@completemedicallists.com
+alt_contact: https://www.completemedicallists.com/privacy.php; https://www.completemedicallists.com/ccpa.php
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

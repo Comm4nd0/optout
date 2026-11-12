@@ -1,0 +1,14 @@
+name: Lead411 Corporation
+domain: com; quickenrich.io
+jurisdiction: us
+method: email
+contact: tom@lead411.io
+alt_contact: https://www.lead411.com/your-privacy-choices/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

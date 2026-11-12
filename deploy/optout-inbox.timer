@@ -1,0 +1,10 @@
+[Unit]
+Description=optout inbox timer
+
+[Timer]
+OnCalendar=*:0/15
+
+Persistent=true
+
+[Install]
+WantedBy=timers.target

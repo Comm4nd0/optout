@@ -1,0 +1,14 @@
+name: Baron App, Inc.
+domain: app; cameo.com
+jurisdiction: us
+method: email
+contact: safety@cameo.com
+alt_contact: https://legal.cameo.com/privacypolicy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

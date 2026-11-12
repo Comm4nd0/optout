@@ -1,0 +1,14 @@
+name: Bureau van Dijk (Moody's)
+domain: bvdinfo.com
+method: email
+contact: privacy@moodys.com
+alt_contact: ''
+needs_id: true
+source: https://www.moodys.com/web/en/us/legal/privacy-policy.html
+notes: Orbis/FAME director data. Subject line should be 'DPO Inquiry'.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

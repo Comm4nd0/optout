@@ -1,0 +1,14 @@
+name: Path2Response, LLC
+domain: path2response.com
+jurisdiction: us
+method: email
+contact: privacyinfo@path2response.com
+alt_contact: https://privacyportal-cdn.onetrust.com/dsarwebform/2de26f06-de6f-45a7-8e1d-7d1148a3f301/draft/7a5dc7d1-cc7e-43a8-9f24-702807deb65b.html
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

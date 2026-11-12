@@ -1,0 +1,15 @@
+name: National Public Data
+domain: nationalpublicdata.com
+jurisdiction: us
+method: form
+contact: https://nationalpublicdata.com/optout.html
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your data, copy the unique URL, and paste it in the opt-out form. You’ll then need to
+  share your email address and verify the opt-out request via email.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

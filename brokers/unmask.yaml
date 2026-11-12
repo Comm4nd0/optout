@@ -1,0 +1,16 @@
+name: UnMask
+domain: unmask.com
+jurisdiction: us
+method: form
+contact: https://unmask.com/opt-out/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your information. Once you find your entry, go to the opt out form where you'll enter
+  your name, city, and state. They'll send a confirmation email with a link to finish the removal process.
+  You'll need to solve a couple captchas along the way.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Biscred
+domain: biscred.com
+jurisdiction: us
+method: email
+contact: privacy@biscred.com
+alt_contact: https://www.biscred.com/do-not-sell-my-information; https://www.biscred.com/privacy-policy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

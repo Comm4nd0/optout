@@ -1,0 +1,14 @@
+name: dentsu Lifestyle Survey / identity product
+domain: dentsu.com
+method: email
+contact: dpo@dentsu.com
+alt_contact: dpo@dentsuaegis.com
+needs_id: true
+source: https://dentsu.com/lifestyle-survey
+notes: UK lifestyle-survey data used for audience modelling.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

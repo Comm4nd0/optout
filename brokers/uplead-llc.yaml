@@ -1,0 +1,14 @@
+name: Uplead LLC
+domain: uplead.com
+jurisdiction: us
+method: email
+contact: techteam@uplead.com
+alt_contact: https://www.uplead.com/opt-out/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

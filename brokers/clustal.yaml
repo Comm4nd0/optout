@@ -1,0 +1,17 @@
+name: Clustal
+domain: clustal.org
+jurisdiction: us
+method: form
+contact: https://www.clustal.org/privacy-control
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: Go to Clustal.org and look for your information in the top search bar. Click on “view full record”
+  to grab the URL. (This is important, as the original URL will not work.) Then, go to the Privacy Control
+  page, enter the URL, and click “remove my info.” Then enter your email address and click “remove my
+  info” again. (Note that if you have more than one listing, you’ll need a different email address
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

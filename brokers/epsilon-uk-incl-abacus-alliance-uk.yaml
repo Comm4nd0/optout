@@ -1,0 +1,14 @@
+name: Epsilon UK (incl. Abacus Alliance UK)
+domain: epsilon.com
+method: email
+contact: DPOfficer@epsilon.com
+alt_contact: https://legal.epsilon.com/general-privacy-request/
+needs_id: false
+source: https://legal.epsilon.com/eu/privacy-policy-services
+notes: Includes the Abacus Alliance UK mail-order co-op.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Instantly.ai
+domain: instantly.ai
+jurisdiction: us
+method: email
+contact: privacy@instantly.ai
+alt_contact: https://app.instantly.ai/privacy/info; https://instantly.ai/privacy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

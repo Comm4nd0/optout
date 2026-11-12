@@ -1,0 +1,14 @@
+name: CityData.AI
+domain: citydata.ai
+jurisdiction: us
+method: email
+contact: business@citydata.ai
+alt_contact: https://www.citydata.ai/privacy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

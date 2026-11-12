@@ -1,0 +1,14 @@
+name: Everleads; ListsOnline; Internet Directory Publishers; Stanford Direct
+domain: everleads.com
+jurisdiction: us
+method: email
+contact: privacy@everleads.com
+alt_contact: https://www.everleads.com/privacy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

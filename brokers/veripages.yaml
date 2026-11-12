@@ -1,0 +1,15 @@
+name: Veripages
+domain: veripages.com
+jurisdiction: us
+method: form
+contact: https://veripages.com/inner/control-privacy
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Find your information. To opt out, enter the profile URL, along with your name and email. You will
+  need to fill out a captcha, and confirm the email link to finalize your request.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

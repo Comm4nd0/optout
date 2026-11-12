@@ -1,0 +1,14 @@
+name: KB Synergy
+domain: kbsynergy.com
+jurisdiction: us
+method: email
+contact: info@kbsynergy.com
+alt_contact: https://hiy.ywv.mybluehost.me/website_8088244e/privacy-policy-ccpa-do-not-sell-my-information/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,15 @@
+name: SearchQuarry
+domain: searchquarry.com
+jurisdiction: us
+method: form
+contact: https://members.searchquarry.com/removeMyData/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Find your information. If it’s listed, opt out You will need to click the verification link in
+  your inbox to finalize the opt out.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

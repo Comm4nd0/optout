@@ -1,0 +1,14 @@
+name: Clearview AI, Inc.
+domain: clearview.ai
+jurisdiction: us
+method: email
+contact: privacy-requests@clearview.ai
+alt_contact: https://www.clearview.ai/privacy-and-requests
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

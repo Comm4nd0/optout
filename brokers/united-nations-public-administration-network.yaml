@@ -1,0 +1,16 @@
+name: United Nations Public Administration Network
+domain: unpan.org
+jurisdiction: us
+method: form
+contact: https://unpan.org/opt-out
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your information by filling out your first and last name, leaving off the city and state.
+  Paste the URL in the opt-out page, and click on “submit opt-out request.” Type in your email address.
+  When you get an email, click the “confirm request” button.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

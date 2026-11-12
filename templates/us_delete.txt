@@ -1,0 +1,30 @@
+Subject: Request to delete and opt out of sale: {{ p.full_name }} [optout:{{ rid }}]
+
+Hello,
+
+{% if agent %}I am writing on behalf of {{ p.full_name }}, who has authorised me to act as their agent for this request. {% if letter %}Their signed authorisation is attached.{% else %}Their signed authorisation is available on request.{% endif %} Please send your response to me at this address.
+
+{% endif %}{{ "They request" if agent else "I request" }} that {{ broker.name }}:
+
+1. Delete all personal information you hold about {{ "them" if agent else "me" }}, including any people-search, marketing, identity or audience profiles.
+2. Stop selling or sharing {{ "their" if agent else "my" }} personal information, and stop using it for targeted advertising or profiling.
+3. Remove any public listing or profile that shows {{ "their" if agent else "my" }} name, address, phone number or relatives.
+4. Instruct any service provider or third party to whom you sold or disclosed this information to delete it as well.
+5. Confirm in writing when you have done this, or confirm that you hold no information about {{ "them" if agent else "me" }}.
+
+{{ "They live" if agent else "I live" }} in the United Kingdom. To the extent you offer goods or services to, or monitor the behaviour of, people in the UK, this request is made under Articles 17 and 21 of the UK GDPR, and a response is due within one month. Otherwise, please honour it as you would a request under the California Consumer Privacy Act (Cal. Civ. Code §§ 1798.105 and 1798.120) or similar US state privacy laws. Many companies extend these rights to everyone.
+
+The details below are provided only so you can locate the records. Do not use them for any other purpose.
+
+Name: {{ p.full_name }}
+{% for n in p.other_names or [] %}Also known as: {{ n }}
+{% endfor %}{% for a in p.addresses or [] %}{{ "Current address" if a.current else "Previous address" }}: {{ a.text }}
+{% endfor %}{% for e in p.emails or [] %}Email: {{ e }}
+{% endfor %}{% for t in p.phones or [] %}Phone: {{ t }}
+{% endfor %}
+Please quote reference "optout:{{ rid }}" in any reply.
+
+Thank you,
+
+{{ sender.full_name }}{% if agent %}
+(authorised agent for {{ p.full_name }}){% endif %}

@@ -1,0 +1,14 @@
+name: BeenVerified, LLC and its subsidiaries and affiliates
+domain: beenverified.com; https
+jurisdiction: us
+method: email
+contact: privacy@ltvco.com
+alt_contact: https://www.beenverified.com/svc/optout/search/comprehensive_optouts
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

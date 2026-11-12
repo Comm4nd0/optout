@@ -1,0 +1,14 @@
+name: Lotame (Epsilon)
+domain: lotame.com
+method: email
+contact: privacy@epsilon.com
+alt_contact: https://www.lotame.com/privacy/information-privacy-choices-services/
+needs_id: false
+source: https://www.lotame.com/privacy/services-privacy-notice/
+notes: Data marketplace. Cookie and MAID data would also need those IDs sent.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

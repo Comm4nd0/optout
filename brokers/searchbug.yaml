@@ -1,0 +1,17 @@
+name: Searchbug
+domain: searchbug.com
+jurisdiction: us
+method: manual
+contact: https://www.searchbug.com/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: charges money. Unfortunately, you have to sign up with a credit card to search for your information,
+  though your first search is free. You can contact Searchbug using the contact form or chat link or via
+  phone or text at (760) 454-7301 or via fax at (760) 454-7341 to ask them to block the display of your
+  personal information.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

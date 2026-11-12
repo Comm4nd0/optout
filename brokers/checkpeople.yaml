@@ -1,0 +1,16 @@
+name: CheckPeople
+domain: checkpeople.com
+jurisdiction: us
+method: form
+contact: https://checkpeople.com/privacy-rights
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: First, request a copy of your data by filling out your name and email address under “Right to Know”
+  at CheckPeople's privacy rights page. If CheckPeople has your information, opt out. You will be required
+  to share your birthdate and full legal name.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

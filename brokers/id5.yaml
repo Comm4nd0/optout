@@ -1,0 +1,14 @@
+name: ID5
+domain: id5.io
+jurisdiction: us
+method: email
+contact: privacy@id5.io
+alt_contact: https://id5.io
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

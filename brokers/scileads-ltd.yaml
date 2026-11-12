@@ -1,0 +1,14 @@
+name: SciLeads Ltd
+domain: scileads.com
+jurisdiction: us
+method: email
+contact: privacy@scileads.com
+alt_contact: https://scileads.com/privacy-policy/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

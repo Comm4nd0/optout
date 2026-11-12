@@ -1,0 +1,14 @@
+name: PlaceIQ; PIQ
+domain: precisely.com
+jurisdiction: us
+method: email
+contact: placeiq.privacy@precisely.com
+alt_contact: https://www.precisely.com/legal/placeiq-california-notice-at-collection-and-privacy-notice
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

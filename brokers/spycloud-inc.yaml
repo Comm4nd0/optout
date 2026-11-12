@@ -1,0 +1,14 @@
+name: SpyCloud Inc.
+domain: spycloud.com
+jurisdiction: us
+method: email
+contact: privacy@spycloud.com
+alt_contact: https://spycloud.com/legal/privacy-policy/; https://spycloud.com/legal/dsar/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

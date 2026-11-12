@@ -1,0 +1,15 @@
+name: Men Stopping Violence
+domain: menstoppingviolence.org
+jurisdiction: us
+method: form
+contact: https://www.menstoppingviolence.org/opt-out/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: First, search for your name. Then enter the URL in the opt-out page. Click “remove my info,” and
+  add your email address. Click on the confirmation link emailed to you.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

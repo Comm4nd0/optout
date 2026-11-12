@@ -1,0 +1,14 @@
+name: hireEZ
+domain: hireez.com
+jurisdiction: us
+method: email
+contact: privacy@hireez.com
+alt_contact: https://app.hireez.com/ownyourdata
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

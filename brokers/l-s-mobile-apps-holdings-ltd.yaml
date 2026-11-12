@@ -1,0 +1,14 @@
+name: L.S Mobile Apps Holdings LTD
+domain: lsmapps.com
+jurisdiction: us
+method: email
+contact: guy.hamawi@lsmapps.com
+alt_contact: https://www.lsmapps.com/ccpa
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

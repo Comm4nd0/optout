@@ -1,0 +1,29 @@
+# /etc/optout/people.yaml  (root 600). Everything here is sent to brokers so they can find the records.
+# Only include what you are happy for a broker to see; they already hold most of it.
+#
+# Both people below are disabled, so nothing happens until you have replaced the placeholders
+# with real details and set enabled: true.
+sender: alex             # whose Gmail sends the requests; acts as agent for everyone else
+people:
+  alex:
+    enabled: false       # set to true once the details below are yours
+    full_name: Alex Example
+    other_names: []      # maiden names, nicknames, common misspellings
+    emails: [you@example.com]
+    phones: []           # e.g. "+44 7700 900000"
+    addresses:
+      - {current: true, text: "Street, Town, Postcode"}
+      # - {text: "Previous address, Postcode"}
+    dob: ""              # never put in emails; only shown on the dashboard for forms that insist
+  sam:                   # someone else in the household; delete this block if it is just you
+    enabled: false
+    full_name: Sam Example
+    other_names: []
+    emails: []
+    phones: []
+    addresses:
+      - {current: true, text: "Street, Town, Postcode"}
+    dob: ""
+    # Their signed authorisation as a PDF, attached to their requests. The file has to exist.
+    # Without this line the letters say the authorisation is available on request.
+    # agent_letter: /etc/optout/auth/sam.pdf

@@ -1,0 +1,15 @@
+name: Acxiom UK
+domain: acxiom.co.uk
+method: email
+contact: ukconsumerservices@acxiom.com
+alt_contact: ukenquiries@acxiom.com
+needs_id: false
+source: https://www.acxiom.co.uk/privacy/
+notes: 'InfoBase UK consumer data. Post: Consumer Services, Acxiom Ltd, Bankside 3, 90-100 Southwark St,
+  London SE1 0SW.'
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,18 @@
+name: PimEyes
+domain: pimeyes.com
+jurisdiction: us
+method: form
+contact: https://pimeyes.com/en/opt-out-request-form
+alt_contact: ''
+needs_id: true
+recheck_months: 3
+priority: 3
+category: people-search
+notes: 'asks for ID. PimEyes is an online face search engine that uses face recognition to perform a reverse
+  image search, finding pictures of your face (or others like it) throughout the Internet. If you want
+  to see if your photographs are in PimEyes’ database, consider uploading a photo. (I used a very public
+  photo that I know is already online, but you can also take a photo with your camera—which PimEyes claims
+  it '
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

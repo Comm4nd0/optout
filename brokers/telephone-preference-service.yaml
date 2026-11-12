@@ -1,0 +1,14 @@
+name: Telephone Preference Service
+domain: tpsonline.org.uk
+method: form
+contact: https://www.tpsonline.org.uk/register
+alt_contact: ''
+needs_id: false
+source: https://www.tpsonline.org.uk/
+notes: Register landline and mobile numbers.
+category: preference
+recheck_months: 120
+priority: 1
+jurisdiction: uk
+generated: true
+enabled: true

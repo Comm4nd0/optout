@@ -1,0 +1,14 @@
+name: Creditsafe UK
+domain: creditsafe.com
+method: email
+contact: help@creditsafeuk.com
+alt_contact: optout@creditsafe.com
+needs_id: true
+source: https://www.creditsafe.com/gb/en/legal/gdpr-data-subject-access-request.html
+notes: Wants proof of ID and address. Supplies 192.com's company listings.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

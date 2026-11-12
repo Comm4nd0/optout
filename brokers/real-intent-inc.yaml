@@ -1,0 +1,14 @@
+name: REAL INTENT INC
+domain: realintent.co
+jurisdiction: us
+method: email
+contact: aaron@realintent.co
+alt_contact: https://www.realintent.co/privacy-policy; https://www.realintent.co/do-not-sell
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

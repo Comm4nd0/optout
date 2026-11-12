@@ -1,0 +1,18 @@
+name: MyLife
+domain: mylife.com
+jurisdiction: us
+method: form
+contact: https://www.mylife.com/privacyrequest
+alt_contact: privacy@mylife.com
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: may need a phone call. Find your information, and then opt out. Another option is to email your
+  removal request to <privacy@mylife.com> with your name and a link to your profile. MyLife will try to
+  get you to create an account with a copy of your driver’s license to submit a profile removal request,
+  and we’ve received reports that emailing the <info@mylife.com> or <removalrequests@mylife.com> email
+  addresses will requir
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

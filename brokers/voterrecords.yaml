@@ -1,0 +1,16 @@
+name: VoterRecords
+domain: voterrecords.com
+jurisdiction: us
+method: manual
+contact: https://voterrecords.com/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Go to VoterRecords.com, find your information, scroll to the bottom of the page and click on the"record
+  opt-out" link. This will lead to an opt-out form, which you’ll need to submit. You may receive a verification
+  link you’ll need to click on to verify your opt-out request.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

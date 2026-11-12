@@ -1,0 +1,14 @@
+name: Ideal Postcodes
+domain: ideal-postcodes.co.uk
+method: email
+contact: support@ideal-postcodes.co.uk
+alt_contact: ''
+needs_id: false
+source: https://terms.ideal-postcodes.co.uk/website/privacy/
+notes: PAF reseller; holds little personal data.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

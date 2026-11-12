@@ -1,0 +1,397 @@
+- name: Experian Marketing Services (ConsumerView / Mosaic)
+  domain: experian.co.uk
+  method: email
+  contact: customerservices@uk.experian.com
+  alt_contact: uk.dpo@experian.com; https://www.experianmarketingservices.digital/OptOut/OptOut
+  needs_id: false
+  source: https://www.experian.co.uk/privacy/consumer-information-portal/data-rights/your-rights/
+  notes: UK's largest marketing database. Opt-out adds you to their suppression file; uk.dpo@ handles
+    erasure.
+  jurisdiction: uk
+- name: Equifax UK (Marketing Services)
+  domain: equifax.co.uk
+  method: email
+  contact: UKDPO@equifax.com
+  alt_contact: https://www.equifax.co.uk/contact-us
+  needs_id: false
+  source: https://equifax.co.uk/downloads/privacy-hub/ein-aug-2026.pdf
+  notes: 'Credit-reference erasure will normally be refused; the marketing objection is absolute. Post:
+    Equifax Ltd DPO, PO Box 10036, Leicester LE3 4FS.'
+  jurisdiction: uk
+- name: TransUnion UK (Callcredit Marketing)
+  domain: transunion.co.uk
+  method: email
+  contact: ukconsumer@transunion.com
+  alt_contact: ukdpo@transunion.com
+  needs_id: false
+  source: https://www.transunion.co.uk/legal/privacy-centre/pc-marketing-services
+  notes: Sells its copy of the open register for marketing. Opt-out of marketing services goes on their
+    suppression list (up to 30 days).
+  jurisdiction: uk
+- name: Acxiom UK
+  domain: acxiom.co.uk
+  method: email
+  contact: ukconsumerservices@acxiom.com
+  alt_contact: ukenquiries@acxiom.com
+  needs_id: false
+  source: https://www.acxiom.co.uk/privacy/
+  notes: 'InfoBase UK consumer data. Post: Consumer Services, Acxiom Ltd, Bankside 3, 90-100 Southwark
+    St, London SE1 0SW.'
+  jurisdiction: uk
+- name: CACI (Acorn / Ocean)
+  domain: caci.co.uk
+  method: email
+  contact: compliance@caci.co.uk
+  alt_contact: dpo@caci.co.uk
+  needs_id: true
+  source: https://www.caci.co.uk/data-privacy/privacy-policy/
+  notes: Ocean lifestyle database. May need to confirm identity.
+  jurisdiction: uk
+- name: Sagacity Solutions (incl. REaD Group)
+  domain: sagacitysolutions.co.uk
+  method: email
+  contact: enquiries@sagacitysolutions.co.uk
+  alt_contact: ''
+  needs_id: false
+  source: https://www.sagacitysolutions.co.uk/privacy-policy
+  notes: Took over REaD Group in 2022. No consumer-data notice is published, so the request should name
+    REaD Group data products.
+  jurisdiction: uk
+- name: Epsilon UK (incl. Abacus Alliance UK)
+  domain: epsilon.com
+  method: email
+  contact: DPOfficer@epsilon.com
+  alt_contact: https://legal.epsilon.com/general-privacy-request/
+  needs_id: false
+  source: https://legal.epsilon.com/eu/privacy-policy-services
+  notes: Includes the Abacus Alliance UK mail-order co-op.
+  jurisdiction: uk
+- name: Lotame (Epsilon)
+  domain: lotame.com
+  method: email
+  contact: privacy@epsilon.com
+  alt_contact: https://www.lotame.com/privacy/information-privacy-choices-services/
+  needs_id: false
+  source: https://www.lotame.com/privacy/services-privacy-notice/
+  notes: Data marketplace. Cookie and MAID data would also need those IDs sent.
+  jurisdiction: uk
+- name: LiveRamp UK
+  domain: liveramp.uk
+  method: email
+  contact: ukprivacy@liveramp.com
+  alt_contact: ''
+  needs_id: false
+  source: https://liveramp.com/uk/privacy
+  notes: Identity graph (RampID) linking offline PII to online IDs.
+  jurisdiction: uk
+- name: Zeta Global
+  domain: zetaglobal.com
+  method: form
+  contact: https://zetaglobal.com/privacy-choices/
+  alt_contact: privacy@zetaglobal.com
+  needs_id: true
+  source: https://www.zetaglobal.com/privacy-policy/
+  notes: Verifies via an emailed link. An objection is treated as deletion.
+  jurisdiction: uk
+- name: dentsu Lifestyle Survey / identity product
+  domain: dentsu.com
+  method: email
+  contact: dpo@dentsu.com
+  alt_contact: dpo@dentsuaegis.com
+  needs_id: true
+  source: https://dentsu.com/lifestyle-survey
+  notes: UK lifestyle-survey data used for audience modelling.
+  jurisdiction: uk
+- name: Emma's Diary (Lifecycle Marketing Group)
+  domain: emmasdiary.co.uk
+  method: form
+  contact: https://dsar.emmasdiary.co.uk/
+  alt_contact: dpo@everydayhealth.com
+  needs_id: true
+  source: https://www.emmasdiary.co.uk/contact-legal/privacy-notice
+  notes: Baby-club lead generation for advertisers.
+  jurisdiction: uk
+- name: Bounty
+  domain: bounty.com
+  method: email
+  contact: privacy@bounty.com
+  alt_contact: ''
+  needs_id: false
+  source: https://www.bounty.com/info/privacy-policy
+  notes: Baby club that shares data with partner clubs. Controller is Joy Memories Inc.
+  jurisdiction: uk
+- name: Data8
+  domain: data-8.co.uk
+  method: email
+  contact: datagovernance@data-8.co.uk
+  alt_contact: info@data-8.co.uk
+  needs_id: false
+  source: https://www.data-8.co.uk/privacy-policy/
+  notes: Suppression/append bureau plus a B2B directory.
+  jurisdiction: uk
+- name: Market Location
+  domain: marketlocation.com
+  method: email
+  contact: Compliance@marketlocation.co.uk
+  alt_contact: compliance@marketlocation.com
+  needs_id: true
+  source: https://www.marketlocation.com/privacy-policy/
+  notes: UK B2B database covering sole traders.
+  jurisdiction: uk
+- name: Creditsafe UK
+  domain: creditsafe.com
+  method: email
+  contact: help@creditsafeuk.com
+  alt_contact: optout@creditsafe.com
+  needs_id: true
+  source: https://www.creditsafe.com/gb/en/legal/gdpr-data-subject-access-request.html
+  notes: Wants proof of ID and address. Supplies 192.com's company listings.
+  jurisdiction: uk
+- name: Dun & Bradstreet UK
+  domain: dnb.co.uk
+  method: email
+  contact: EUDPO@dnb.com
+  alt_contact: ''
+  needs_id: false
+  source: https://www.dnb.co.uk/utility-pages/privacy-policy.html
+  notes: Data on sole traders and directors. Also owns Eyeota.
+  jurisdiction: uk
+- name: Eyeota (Dun & Bradstreet)
+  domain: eyeota.com
+  method: form
+  contact: https://www.eyeota.com/data-subject-request-form
+  alt_contact: ''
+  needs_id: true
+  source: https://www.eyeota.com/data-subject-request
+  notes: Audience data (cookie/device IDs).
+  jurisdiction: uk
+- name: Bureau van Dijk (Moody's)
+  domain: bvdinfo.com
+  method: email
+  contact: privacy@moodys.com
+  alt_contact: ''
+  needs_id: true
+  source: https://www.moodys.com/web/en/us/legal/privacy-policy.html
+  notes: Orbis/FAME director data. Subject line should be 'DPO Inquiry'.
+  jurisdiction: uk
+- name: GBG (GB Group) incl. Loqate
+  domain: gbgplc.com
+  method: email
+  contact: Privacy.Rights@gbg.com
+  alt_contact: DPO@gbgplc.com
+  needs_id: true
+  source: https://www.loqate.com/en-gb/products-services-privacy-notice/
+  notes: Identity verification and address data.
+  jurisdiction: uk
+- name: LexisNexis Risk Solutions UK / Tracesmart
+  domain: lexisnexis.co.uk
+  method: form
+  contact: https://reedelsevierinc3.my.site.com/webform/s/
+  alt_contact: DPO@lexisnexisrisk.com
+  needs_id: true
+  source: https://risk.lexisnexis.com/corporate/processing-notices/business-services
+  notes: Tracesmart tracing, ID and AML checks. Use the non-US privacy request form.
+  jurisdiction: uk
+- name: Royal Mail
+  domain: royalmail.com
+  method: form
+  contact: https://privacyportal-de.onetrust.com/webform/e1491f29-851b-4350-bb98-8faa269b4189/efa508f1-1c18-46e2-920f-93d44be4554f
+  alt_contact: ''
+  needs_id: false
+  source: https://www.royalmail.com/privacy-notice
+  notes: DPO OneTrust form only. PAF holds addresses, not names.
+  priority: 2
+  jurisdiction: uk
+- name: Ideal Postcodes
+  domain: ideal-postcodes.co.uk
+  method: email
+  contact: support@ideal-postcodes.co.uk
+  alt_contact: ''
+  needs_id: false
+  source: https://terms.ideal-postcodes.co.uk/website/privacy/
+  notes: PAF reseller; holds little personal data.
+  priority: 2
+  jurisdiction: uk
+- name: 192.com
+  domain: 192.com
+  method: form
+  contact: https://www.192.com/c01/new-request/
+  alt_contact: feedback@192.com
+  needs_id: true
+  source: https://www.192.com/misc/privacy-policy/
+  notes: Electoral roll and directory search. Online form plus an email confirmation link; removal in
+    about 48h. Records come back if you stay on the open register.
+  category: people-search
+  recheck_months: 3
+  jurisdiction: uk
+- name: ukphonebook.com (Simunix)
+  domain: ukphonebook.com
+  method: form
+  contact: https://www.ukphonebook.com/remove-me
+  alt_contact: dpo@simunix.com
+  needs_id: false
+  source: https://www.ukphonebook.com/privacy
+  notes: Electoral roll people search.
+  category: people-search
+  recheck_months: 3
+  jurisdiction: uk
+- name: PeopleTraceUK
+  domain: peopletraceuk.com
+  method: form
+  contact: https://www.peopletraceuk.com/RequestRecordRemoval.asp
+  alt_contact: ''
+  needs_id: true
+  source: https://www.peopletraceuk.com/Privacy_Policy.asp
+  notes: One form per person per address.
+  category: people-search
+  recheck_months: 3
+  jurisdiction: uk
+- name: LocateFamily
+  domain: locatefamily.com
+  method: form
+  contact: https://www.locatefamily.com/removal.html
+  alt_contact: ''
+  needs_id: false
+  source: https://www.locatefamily.com/privacy_policy.html
+  notes: Remove with the bin icon on your listing; https://www.locatefamily.com/removal2.html is the fallback.
+  category: people-search
+  recheck_months: 3
+  jurisdiction: uk
+- name: Findmypast
+  domain: findmypast.co.uk
+  method: email
+  contact: dataprotectionofficer@findmypast.com
+  alt_contact: support@findmypast.com
+  needs_id: false
+  source: https://www.findmypast.co.uk/help/articles/4411075277969-13-your-rights-regarding-your-personal-information
+  notes: Genealogy site with electoral-type records. Optional.
+  priority: 2
+  jurisdiction: uk
+- name: Nielsen
+  domain: nielsen.com
+  method: form
+  contact: https://app-de.onetrust.com/app/#/webform/391293ec-4527-4822-b13c-bc46154b8528
+  alt_contact: privacy.department@nielsen.com
+  needs_id: true
+  source: https://www.nielsen.com/legal/privacy-statement-on-media-analysis/
+  notes: Audience measurement data.
+  priority: 2
+  jurisdiction: uk
+- name: adsquare
+  domain: adsquare.com
+  method: email
+  contact: privacy@adsquare.com
+  alt_contact: ''
+  needs_id: false
+  source: https://adsquare.com/privacy
+  notes: Mobile location data. Usually needs the MAID.
+  priority: 2
+  jurisdiction: uk
+- name: Tapad (Experian)
+  domain: tapad.com
+  method: form
+  contact: https://crportal.tapad.com
+  alt_contact: ''
+  needs_id: false
+  source: https://tapad.com/privacy-policy
+  notes: UNVERIFIED portal URL; check by hand.
+  priority: 2
+  jurisdiction: uk
+- name: Quantcast
+  domain: quantcast.com
+  method: form
+  contact: https://www.quantcast.com/privacy/data-subject-rights/
+  alt_contact: ''
+  needs_id: false
+  source: https://help.quantcast.com/docs/faqs-data-subject-rights
+  notes: UNVERIFIED. Cookie data only; low priority.
+  priority: 2
+  jurisdiction: uk
+- name: Infutor (ActiveProspect)
+  domain: infutor.com
+  method: form
+  contact: https://privacy-central.securiti.ai/#/dsr-universal/d22d7639-4e9d-4a81-b37c-040fd51356e2
+  alt_contact: ''
+  needs_id: true
+  source: https://infutor.com/privacy-center/
+  notes: US consumer data; optional.
+  priority: 2
+  jurisdiction: uk
+- name: Cognism
+  domain: cognism.com
+  method: email
+  contact: privacy@cognism.com
+  alt_contact: ''
+  needs_id: false
+  source: https://www.cognism.com/en/privacy-policy
+  notes: UK B2B contact data.
+  priority: 2
+  jurisdiction: uk
+- name: ZoomInfo
+  domain: zoominfo.com
+  method: form
+  contact: https://www.zoominfo.com/update/remove
+  alt_contact: remove@zoominfo.com
+  needs_id: true
+  source: https://www.zoominfo.com/legal/privacy-policy
+  notes: B2B profiles.
+  priority: 2
+  jurisdiction: uk
+- name: Lusha
+  domain: lusha.com
+  method: email
+  contact: privacy@lusha.com
+  alt_contact: https://app.prighter.com/portal/Lusha
+  needs_id: true
+  source: https://www.lusha.com/legal/privacy-notice/
+  notes: B2B contact and phone data.
+  priority: 2
+  jurisdiction: uk
+- name: Open electoral register opt-out
+  domain: gov.uk
+  method: manual
+  contact: https://www.gov.uk/electoral-register/opt-out-of-the-open-register
+  alt_contact: ''
+  needs_id: false
+  source: https://www.gov.uk/electoral-register/opt-out-of-the-open-register
+  notes: 'Most important: 192.com, TransUnion and others reload from it. Do once with your council.'
+  category: preference
+  recheck_months: 120
+  priority: 1
+  jurisdiction: uk
+- name: Mailing Preference Service
+  domain: mpsonline.org.uk
+  method: form
+  contact: https://www.mpsonline.org.uk/register
+  alt_contact: ''
+  needs_id: false
+  source: https://www.mpsonline.org.uk/
+  notes: Stops addressed marketing mail.
+  category: preference
+  recheck_months: 120
+  priority: 1
+  jurisdiction: uk
+- name: Telephone Preference Service
+  domain: tpsonline.org.uk
+  method: form
+  contact: https://www.tpsonline.org.uk/register
+  alt_contact: ''
+  needs_id: false
+  source: https://www.tpsonline.org.uk/
+  notes: Register landline and mobile numbers.
+  category: preference
+  recheck_months: 120
+  priority: 1
+  jurisdiction: uk
+- name: Your Online Choices (behavioural ads)
+  domain: youronlinechoices.com
+  method: manual
+  contact: https://www.youronlinechoices.com/uk/
+  alt_contact: ''
+  needs_id: false
+  source: https://www.youronlinechoices.com/uk/
+  notes: Cookie-based ad opt-out, per browser.
+  category: preference
+  recheck_months: 120
+  priority: 1
+  jurisdiction: uk

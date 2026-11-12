@@ -1,0 +1,14 @@
+name: WURL
+domain: wurl.com
+jurisdiction: us
+method: email
+contact: dataprotection@wurl.com
+alt_contact: https://www.wurl.com/; https://www.wurl.com/wurl-advertising-and-media-services-privacy-notice/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

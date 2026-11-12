@@ -1,0 +1,14 @@
+name: DealMachine
+domain: dealmachine.com
+jurisdiction: us
+method: email
+contact: support@dealmachine.com
+alt_contact: https://privacyrequest.dealmachine.com/remove; https://dealmachine.com/privacy-policy; https://help.dealmachine.com/en/articles/15298055-data-privacy-requests
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

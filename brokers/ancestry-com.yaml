@@ -1,0 +1,17 @@
+name: Ancestry.com
+domain: ancestry.com
+jurisdiction: us
+method: form
+contact: https://support.ancestry.com/s/reportissue?language=en_US
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: While you can’t see all of your data without a paid account, Ancestry will delete information if
+  you email links that would redirect you to the proper site if you had an account. Sign up for a free
+  account (not a free trial!), and then search for your information on the sidebar. Click on everything
+  that includes a state you have ever lived at, even if it’s not your current state. Cut and paste the
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

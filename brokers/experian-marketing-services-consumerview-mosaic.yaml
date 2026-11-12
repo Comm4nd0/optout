@@ -1,0 +1,14 @@
+name: Experian Marketing Services (ConsumerView / Mosaic)
+domain: experian.co.uk
+method: email
+contact: customerservices@uk.experian.com
+alt_contact: uk.dpo@experian.com; https://www.experianmarketingservices.digital/OptOut/OptOut
+needs_id: false
+source: https://www.experian.co.uk/privacy/consumer-information-portal/data-rights/your-rights/
+notes: UK's largest marketing database. Opt-out adds you to their suppression file; uk.dpo@ handles erasure.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

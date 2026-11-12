@@ -1,0 +1,14 @@
+name: Royal Mail
+domain: royalmail.com
+method: form
+contact: https://privacyportal-de.onetrust.com/webform/e1491f29-851b-4350-bb98-8faa269b4189/efa508f1-1c18-46e2-920f-93d44be4554f
+alt_contact: ''
+needs_id: false
+source: https://www.royalmail.com/privacy-notice
+notes: DPO OneTrust form only. PAF holds addresses, not names.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

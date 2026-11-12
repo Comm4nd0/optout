@@ -1,0 +1,14 @@
+name: Connected Investors, LLC
+domain: connectedinvestors.com
+jurisdiction: us
+method: email
+contact: dataprivacy@connectedinvestors.com
+alt_contact: https://connectedinvestors.com/privacy-policy; https://firstam.service-now.com/x_farf2_dp_request_ci_opt_out.do?sysparm_id=6d6e7e8edb3e3158665f182813961985
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

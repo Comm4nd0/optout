@@ -1,0 +1,14 @@
+name: Findem, Inc.
+domain: findem.ai
+jurisdiction: us
+method: email
+contact: privacy@findem.ai
+alt_contact: https://www.findem.ai/privacy-policy-platform; https://www.findem.ai/do-not-sell-or-share-my-personal-information
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

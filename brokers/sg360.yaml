@@ -1,0 +1,14 @@
+name: SG360
+domain: sg360.com
+jurisdiction: us
+method: email
+contact: charlesg@sg360.com
+alt_contact: https://sg360.com/do-not-sell-my-info/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

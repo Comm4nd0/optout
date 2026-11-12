@@ -1,0 +1,14 @@
+name: Data8
+domain: data-8.co.uk
+method: email
+contact: datagovernance@data-8.co.uk
+alt_contact: info@data-8.co.uk
+needs_id: false
+source: https://www.data-8.co.uk/privacy-policy/
+notes: Suppression/append bureau plus a B2B directory.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Amplemarket
+domain: amplemarket.com
+jurisdiction: us
+method: email
+contact: legal@amplemarket.com
+alt_contact: https://portal.usepylon.com/amplemarket/forms/privacy-request-form; https://www.amplemarket.com/legal/data-broker-privacy-notice
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

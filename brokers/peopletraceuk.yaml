@@ -1,0 +1,14 @@
+name: PeopleTraceUK
+domain: peopletraceuk.com
+method: form
+contact: https://www.peopletraceuk.com/RequestRecordRemoval.asp
+alt_contact: ''
+needs_id: true
+source: https://www.peopletraceuk.com/Privacy_Policy.asp
+notes: One form per person per address.
+category: people-search
+recheck_months: 3
+jurisdiction: uk
+priority: 1
+generated: true
+enabled: true

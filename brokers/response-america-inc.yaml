@@ -1,0 +1,14 @@
+name: Response America, Inc.
+domain: responseamerica.net
+jurisdiction: us
+method: email
+contact: ncoa@responseamerica.net
+alt_contact: https://responseamerica.net/privacy_dec.html
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

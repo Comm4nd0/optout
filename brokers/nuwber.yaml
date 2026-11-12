@@ -1,0 +1,17 @@
+name: Nuwber
+domain: nuwber.com
+jurisdiction: us
+method: form
+contact: https://nuwber.com/removal/link
+alt_contact: support@nuwber.com
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: 'Find your information. Try to opt out on the removal form. Try "filter by state" to isolate the
+  "person" URL you need. Don’t bother trying to get a full report; it’ll just waste your time with multiple
+  steps and deceptive design trying to get you to pay for a subscription. If the URL you generate doesn''t
+  work in the form or you run across other problems, take a screenshot of your results and send '
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

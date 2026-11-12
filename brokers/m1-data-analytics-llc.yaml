@@ -1,0 +1,14 @@
+name: M1 Data & Analytics, LLC
+domain: m1-data.com
+jurisdiction: us
+method: email
+contact: service@m1-data.com
+alt_contact: https://m1-data.com/unsubscribe/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

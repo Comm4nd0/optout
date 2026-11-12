@@ -1,0 +1,16 @@
+name: TruePeopleSearch.net
+domain: truepeoplesearch.net
+jurisdiction: us
+method: manual
+contact: https://truepeoplesearch.net
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: First, look for your information. Make sure to close any additional pages the site opens, and do
+  not click on any of the “top rated background search services” links. If your information shows up,
+  opt out by entering the URL and other information into this form.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

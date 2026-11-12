@@ -1,0 +1,14 @@
+name: SmartBackgroundChecks
+domain: smartbackgroundchecks.com
+jurisdiction: us
+method: form
+contact: https://www.smartbackgroundchecks.com/optout
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: Find your information. Then, opt out. This will likely also remove your information from PeopleFinders.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

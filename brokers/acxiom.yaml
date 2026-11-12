@@ -1,0 +1,17 @@
+name: Acxiom
+domain: acxiom.com
+jurisdiction: us
+method: form
+contact: https://www.acxiom.com/privacy/fr/
+alt_contact: datenschutz@acxiom.com
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: 'It is hard to find your own info for free, but people in some countries can opt out using the
+  following links: Portail des droits des consommateurs | Acxiom (France) Portale delle preferenze dei
+  consumatori | Acxiom (Italy) Portal de preferencia del consumidor | Acxiom (Spain) US Consumer Opt Out
+  | Acxiom (U.S.)  Users in Austria, Germany, India and Switzerland may email <Datenschutz@acxiom.com>. '
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

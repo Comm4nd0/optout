@@ -1,0 +1,14 @@
+name: Findmypast
+domain: findmypast.co.uk
+method: email
+contact: dataprotectionofficer@findmypast.com
+alt_contact: support@findmypast.com
+needs_id: false
+source: https://www.findmypast.co.uk/help/articles/4411075277969-13-your-rights-regarding-your-personal-information
+notes: Genealogy site with electoral-type records. Optional.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Truth Now LLC
+domain: com; sealedrecords.net
+jurisdiction: us
+method: email
+contact: support@checksecrets.com
+alt_contact: ''
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

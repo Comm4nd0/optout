@@ -1,0 +1,14 @@
+name: Informa TechTarget
+domain: zendesk.com
+jurisdiction: us
+method: email
+contact: privacy@techtarget.com
+alt_contact: https://techtarget.zendesk.com/hc/en-us/requests/new?ticket_form_id=360004852434
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

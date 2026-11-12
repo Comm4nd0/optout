@@ -1,0 +1,10 @@
+[Unit]
+Description=optout cycle timer
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

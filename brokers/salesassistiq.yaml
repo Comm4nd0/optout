@@ -1,0 +1,14 @@
+name: SalesAssistIQ
+domain: salesassistiq.ai
+jurisdiction: us
+method: email
+contact: jen@aniline.io
+alt_contact: https://salesassistiq.ai/about
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,10 @@
+[Unit]
+Description=optout forms timer
+
+[Timer]
+OnCalendar=*-*-* 14:00
+RandomizedDelaySec=2h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

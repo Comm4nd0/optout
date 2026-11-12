@@ -1,0 +1,14 @@
+name: LexisNexis Risk Solutions UK / Tracesmart
+domain: lexisnexis.co.uk
+method: form
+contact: https://reedelsevierinc3.my.site.com/webform/s/
+alt_contact: DPO@lexisnexisrisk.com
+needs_id: true
+source: https://risk.lexisnexis.com/corporate/processing-notices/business-services
+notes: Tracesmart tracing, ID and AML checks. Use the non-US privacy request form.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

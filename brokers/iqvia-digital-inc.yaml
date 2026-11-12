@@ -1,0 +1,14 @@
+name: IQVIA Digital Inc.
+domain: iqviadigital.com; https
+jurisdiction: us
+method: email
+contact: privacyofficer@iqvia.com
+alt_contact: https://privacyportal.onetrust.com/webform/07e8dc4d-6686-403e-9b11-39fe7347d2f4/2f999bd2-c826-498c-a504-894eaf543b6f
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

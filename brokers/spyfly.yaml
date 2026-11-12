@@ -1,0 +1,16 @@
+name: SpyFly
+domain: spyfly.com
+jurisdiction: us
+method: form
+contact: https://www.spyfly.com/help-center/privacy-requests
+alt_contact: support@spyfly.com
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: charges money. Look for your data. Then, opt out. You can also try emailing <support@spyfly.com>.
+  You’ll need to provide your name, age, address, and email address. Make sure SpyFly has information
+  you'd like removed before volunteering these things.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

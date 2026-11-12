@@ -1,0 +1,17 @@
+name: Social Catfish
+domain: socialcatfish.com
+jurisdiction: us
+method: form
+contact: https://socialcatfish.com/opt-out/
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Find your information. Record the URL of each page that has your information. Then, go to the opt-out
+  page and scroll down to the instructions for removing URLs, email, phone number, and address. (Make
+  sure to only ask for information to be removed if you already see it on the site.) You’ll need to provide
+  your email address and click on a confirmation link to complete the opt-out process.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

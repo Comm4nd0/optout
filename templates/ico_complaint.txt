@@ -1,0 +1,17 @@
+Subject: ICO complaint draft
+
+Submit at https://ico.org.uk/make-a-complaint/data-protection-complaints/
+
+Organisation: {{ broker.name }} ({{ broker.domain }})
+Contact used: {{ broker.contact }}
+Data subject: {{ p.full_name }}{% if agent %} (complaint made by {{ sender.full_name }} as authorised agent){% endif %}
+
+What happened:
+On {{ sent_date }} I sent {{ broker.name }} a request under Article 17 (erasure) and Article 21(2) (objection to direct marketing) of the UK GDPR. {% if chases %}On {{ chase_date }} I sent a reminder. {% endif %}As of {{ today }} I have {{ "received no substantive response" if not refused else "received a refusal I believe is not justified" }}.
+
+What I want the ICO to do:
+Require {{ broker.name }} to erase the personal data, stop processing it for direct marketing, and confirm this in writing.
+
+Reference in my correspondence: optout:{{ rid }}
+
+Attach: the original request, the reminder, and any replies (see the event log on the dashboard).

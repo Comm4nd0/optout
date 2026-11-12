@@ -1,0 +1,15 @@
+name: Sagacity Solutions (incl. REaD Group)
+domain: sagacitysolutions.co.uk
+method: email
+contact: enquiries@sagacitysolutions.co.uk
+alt_contact: ''
+needs_id: false
+source: https://www.sagacitysolutions.co.uk/privacy-policy
+notes: Took over REaD Group in 2022. No consumer-data notice is published, so the request should name
+  REaD Group data products.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

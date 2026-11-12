@@ -1,0 +1,14 @@
+name: 360 Media Direct; bPerx; AdSmith; Subco; ClicknRead; WRSS
+domain: www360mediadirect.com
+jurisdiction: us
+method: email
+contact: privacy@360mediadirect.com
+alt_contact: https://360-media-direct.privacy.saymine.io/360_Media_Direct
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

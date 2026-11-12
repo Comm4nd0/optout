@@ -1,0 +1,15 @@
+name: DR Decision Resources, LLC
+domain: clarivate.com
+jurisdiction: us
+method: email
+contact: drgdsr@clarivate.com
+alt_contact: https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/draft/c3eedb35-4568-4772-87fb-4d8ae17ac233;
+  https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/draft/8651c266-68d4-43a8-b7ca-7bd8398843d6
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

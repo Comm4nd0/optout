@@ -1,0 +1,14 @@
+name: PropertyRadar, Inc.
+domain: propertyradar.com
+jurisdiction: us
+method: email
+contact: privacy@propertyradar.com
+alt_contact: https://www.propertyradar.com/privacy-policy; https://privacyportal.onetrust.com/webform/c3eb779a-028a-4045-aefc-ac78be730689/6f6c2bef-b565-4753-adc6-95585d7a9486
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

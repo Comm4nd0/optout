@@ -1,0 +1,14 @@
+name: MedPro Systems
+domain: medprosystems.com
+jurisdiction: us
+method: email
+contact: privacy@medprosystems.com
+alt_contact: https://www.medprosystems.com/privacy-policy/; https://www.medprosystems.com/data-privacy-and-security-rationale-statement/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

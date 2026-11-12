@@ -1,0 +1,14 @@
+name: Data Trust
+domain: thedatatrust.com
+jurisdiction: us
+method: email
+contact: info@thedatatrust.com
+alt_contact: https://thedatatrust.com/do-not-sell-my-personal-information/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

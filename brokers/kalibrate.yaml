@@ -1,0 +1,14 @@
+name: Kalibrate
+domain: intalytics.com
+jurisdiction: us
+method: email
+contact: privacy@kalibrate.com
+alt_contact: https://kalibrate.com/data-subject-access-request-form/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

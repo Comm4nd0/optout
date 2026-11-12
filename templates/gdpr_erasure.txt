@@ -1,0 +1,32 @@
+Subject: Erasure request and objection to processing: {{ p.full_name }} [optout:{{ rid }}]
+
+Dear Data Protection Officer,
+
+{% if agent %}I am writing on behalf of {{ p.full_name }}, who has authorised me to act as their agent for this request. {% if letter %}Their signed authorisation is attached.{% else %}Their signed authorisation is available on request.{% endif %} Please send your response to me at this address.
+{% else %}I am writing to exercise my rights under the UK General Data Protection Regulation and the Data Protection Act 2018.
+{% endif %}
+{{ "They" if agent else "I" }} request that {{ broker.name }}:
+
+1. Erase all personal data you hold about {{ "them" if agent else "me" }} without undue delay (Article 17(1)), including data held in marketing, lifestyle, people-search, identity and audience databases and in any data you have licensed from third parties.
+2. Stop processing {{ "their" if agent else "my" }} personal data for direct marketing, including profiling (Article 21(2) and (3)). This objection is absolute and applies to all your direct-marketing and data-licensing activities.
+3. Notify every recipient to whom you have disclosed or sold {{ "their" if agent else "my" }} personal data of this erasure (Article 19), and tell me who those recipients are.
+4. Confirm in writing when you have done the above. If you hold no personal data about {{ "them" if agent else "me" }}, please confirm that.
+
+You may keep the minimum information needed to stop {{ "them" if agent else "me" }} being re-added to your databases (a suppression record), but no more, and only for that purpose.
+
+Please respond within one month of receipt, as required by Article 12(3).
+
+The details below are provided only so you can locate the records. Do not use them for any other purpose and do not add them to any database.
+
+Name: {{ p.full_name }}
+{% for n in p.other_names or [] %}Also known as: {{ n }}
+{% endfor %}{% for a in p.addresses or [] %}{{ "Current address" if a.current else "Previous address" }}: {{ a.text }}
+{% endfor %}{% for e in p.emails or [] %}Email: {{ e }}
+{% endfor %}{% for t in p.phones or [] %}Phone: {{ t }}
+{% endfor %}
+Please quote reference "optout:{{ rid }}" in any reply.
+
+Yours faithfully,
+
+{{ sender.full_name }}{% if agent %}
+(authorised agent for {{ p.full_name }}){% endif %}

@@ -1,0 +1,14 @@
+name: VRTCAL Markets Inc.
+domain: vrtcal.com
+jurisdiction: us
+method: email
+contact: privacy@vrtcal.com
+alt_contact: https://www.vrtcal.com/docs/PrivacyPolicy-Advertising.pdf; https://www.vrtcal.com/docs/PrivacyPolicy-Corporate.pdf
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

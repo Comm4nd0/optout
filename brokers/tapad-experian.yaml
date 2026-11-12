@@ -1,0 +1,14 @@
+name: Tapad (Experian)
+domain: tapad.com
+method: form
+contact: https://crportal.tapad.com
+alt_contact: ''
+needs_id: false
+source: https://tapad.com/privacy-policy
+notes: UNVERIFIED portal URL; check by hand.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

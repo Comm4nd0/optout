@@ -1,0 +1,14 @@
+name: Lusha
+domain: lusha.com
+method: email
+contact: privacy@lusha.com
+alt_contact: https://app.prighter.com/portal/Lusha
+needs_id: true
+source: https://www.lusha.com/legal/privacy-notice/
+notes: B2B contact and phone data.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

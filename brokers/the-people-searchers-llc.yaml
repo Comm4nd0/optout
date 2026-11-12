@@ -1,0 +1,14 @@
+name: The People Searchers LLC
+domain: peoplesearcher.com; http
+jurisdiction: us
+method: email
+contact: support@peoplesearcher.com
+alt_contact: http://peopesearcher.cm; http://www.secretinfo.org
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

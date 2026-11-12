@@ -1,0 +1,14 @@
+name: Live Data Technologies, Inc.
+domain: livedatatechnologies.com
+jurisdiction: us
+method: email
+contact: remove@livedatatechnologies.com
+alt_contact: https://www.livedatatechnologies.com/opt-out
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

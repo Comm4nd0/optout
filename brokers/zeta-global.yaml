@@ -1,0 +1,14 @@
+name: Zeta Global
+domain: zetaglobal.com
+method: form
+contact: https://zetaglobal.com/privacy-choices/
+alt_contact: privacy@zetaglobal.com
+needs_id: true
+source: https://www.zetaglobal.com/privacy-policy/
+notes: Verifies via an emailed link. An objection is treated as deletion.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

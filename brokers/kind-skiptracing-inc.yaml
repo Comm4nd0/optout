@@ -1,0 +1,14 @@
+name: Kind Skiptracing, Inc
+domain: kindskiptracing.com
+jurisdiction: us
+method: email
+contact: compliance@kindskiptracing.com
+alt_contact: https://kindskiptracing.com
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

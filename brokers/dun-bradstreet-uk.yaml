@@ -1,0 +1,14 @@
+name: Dun & Bradstreet UK
+domain: dnb.co.uk
+method: email
+contact: EUDPO@dnb.com
+alt_contact: ''
+needs_id: false
+source: https://www.dnb.co.uk/utility-pages/privacy-policy.html
+notes: Data on sole traders and directors. Also owns Eyeota.
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

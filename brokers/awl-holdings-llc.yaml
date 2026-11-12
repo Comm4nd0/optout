@@ -1,0 +1,14 @@
+name: AWL Holdings, LLC
+domain: org; affordable-life-insurance-rates.org
+jurisdiction: us
+method: email
+contact: onlineops@awl.com
+alt_contact: https://privacyportal-eu.onetrust.com/webform/031dc37f-2093-4055-9d04-22f83329fe9f/a4fb8ed6-8389-4a17-a3be-ca808c6b300e
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

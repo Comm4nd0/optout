@@ -1,0 +1,14 @@
+name: Open electoral register opt-out
+domain: gov.uk
+method: manual
+contact: https://www.gov.uk/electoral-register/opt-out-of-the-open-register
+alt_contact: ''
+needs_id: false
+source: https://www.gov.uk/electoral-register/opt-out-of-the-open-register
+notes: 'Most important: 192.com, TransUnion and others reload from it. Do once with your council.'
+category: preference
+recheck_months: 120
+priority: 1
+jurisdiction: uk
+generated: true
+enabled: true

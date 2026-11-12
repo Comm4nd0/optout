@@ -1,0 +1,17 @@
+name: BeenVerified
+domain: beenverified.com
+jurisdiction: us
+method: form
+contact: https://www.beenverified.com/app/optout/search
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: Find your information and opt out of people search and property search. BeenVerified also owns
+  PeopleLooker and PeopleSmart. Be aware that BeenVerified only allows one opt-out per email address,
+  so you may need to reach out via email for additional opt-outs. You will need to confirm your opt-out
+  request by clicking on a link sent to you via email.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

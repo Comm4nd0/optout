@@ -1,0 +1,14 @@
+name: Captify Technologies
+domain: captifytechnologies.com
+jurisdiction: us
+method: email
+contact: legal-captify@verve.com
+alt_contact: https://www.captifytechnologies.com/data-subject-rights-request/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Circana, LLC
+domain: circana.com
+jurisdiction: us
+method: email
+contact: privacy@circana.com
+alt_contact: https://www.circana.com/the-circana-group-global-privacy-policy-and-notice
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Matchbook Data, LLC
+domain: matchbookdata.com
+jurisdiction: us
+method: email
+contact: privacy@matchbookdata.com
+alt_contact: https://www.matchbookdata.com/privacy-policy/; https://www.matchbookdata.com/your-privacy-choices/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

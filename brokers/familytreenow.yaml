@@ -1,0 +1,14 @@
+name: FamilyTreeNow
+domain: familytreenow.com
+jurisdiction: us
+method: form
+contact: https://www.familytreenow.com/optout
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: Search for yourself and remove your information.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

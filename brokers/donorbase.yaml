@@ -1,0 +1,14 @@
+name: DonorBase
+domain: donorbase.com
+jurisdiction: us
+method: email
+contact: doba_privacy@donorbase.com
+alt_contact: https://donorbase.com; https://www.dataaxlenonprofit.com/donorbase
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

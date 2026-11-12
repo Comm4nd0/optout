@@ -1,0 +1,11 @@
+[Unit]
+Description=optout dashboard
+After=network-online.target
+
+[Service]
+EnvironmentFile=/etc/optout/optout.env
+ExecStart=/opt/optout/.venv/bin/optout web
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

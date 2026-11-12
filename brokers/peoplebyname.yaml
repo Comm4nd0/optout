@@ -1,0 +1,15 @@
+name: PeopleByName
+domain: peoplebyname.com
+jurisdiction: us
+method: form
+contact: https://www.peoplebyname.com/remove.php
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: 'Look up your name. Or, you can fill in your name in the URL like this: https://www.peoplebyname.com/people/[Last_Name]/[First_Name].
+  Opt out for each record.'
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

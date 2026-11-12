@@ -1,0 +1,14 @@
+name: Index Exchange Inc.
+domain: indexexchange.com
+jurisdiction: us
+method: email
+contact: privacy@indexexchange.com
+alt_contact: https://www.indexexchange.com/privacy/exchange-platform-privacy-policy/; https://www.indexexchange.com/privacy/rights-exercising-rights/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

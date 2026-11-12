@@ -1,0 +1,15 @@
+name: US Data Corporation
+domain: usdatacorporation.com
+jurisdiction: us
+method: email
+contact: privacy@usdatacorporation.com
+alt_contact: https://www.usdatacorporation.com/do-not-sell-my-info/?utm_source=google_ads&utm_medium=ppc&utm_term=us&gclid=undefined;
+  https://www.usdatacorporation.com/opt-out?utm_source=google_ads&utm_medium=ppc&utm_term=us&gclid=undefined
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

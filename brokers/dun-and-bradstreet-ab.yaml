@@ -1,0 +1,14 @@
+name: Dun and Bradstreet AB
+domain: netwisedata.com
+jurisdiction: us
+method: email
+contact: privacyofficer@dnb.com
+alt_contact: https://www.netwisedata.com; https://www.dnb.com/en-us/why-dnb/data-transparency.html; https://submit-irm.trustarc.eu/services/validation/ba81b98f-997d-4216-b4cc-d64cf261b082
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

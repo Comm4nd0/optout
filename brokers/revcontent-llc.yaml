@@ -1,0 +1,14 @@
+name: RevContent, LLC
+domain: revcontent.com
+jurisdiction: us
+method: email
+contact: privacy@revcontent.com
+alt_contact: https://www.revcontent.com/policy/privacy-policy#your-privacy-rights-and-choices; https://www.revcontent.com/legal/optout/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

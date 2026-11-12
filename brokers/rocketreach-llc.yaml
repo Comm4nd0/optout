@@ -1,0 +1,14 @@
+name: RocketReach LLC
+domain: rocketreach.co
+jurisdiction: us
+method: email
+contact: privacy@rocketreach.co
+alt_contact: https://rocketreach.co/privacy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

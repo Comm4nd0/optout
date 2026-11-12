@@ -1,0 +1,14 @@
+name: OAN; Online Advertising Network
+domain: oan.pl; https
+jurisdiction: us
+method: email
+contact: privacy@oan.pl
+alt_contact: https://oan.pl/do-not-sell-my-personal-info/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

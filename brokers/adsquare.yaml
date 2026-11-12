@@ -1,0 +1,14 @@
+name: adsquare
+domain: adsquare.com
+method: email
+contact: privacy@adsquare.com
+alt_contact: ''
+needs_id: false
+source: https://adsquare.com/privacy
+notes: Mobile location data. Usually needs the MAID.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

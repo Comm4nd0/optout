@@ -1,0 +1,19 @@
+Subject: Overdue: erasure request for {{ p.full_name }} [optout:{{ rid }}]
+
+Dear Data Protection Officer,
+
+On {{ sent_date }} I sent {{ broker.name }} a request to erase {{ "the personal data of " + p.full_name if agent else "my personal data" }} and to stop processing it for direct marketing (UK GDPR Articles 17 and 21). A copy is below.
+
+I have not received a substantive response, and the one-month period in Article 12(3) has now passed.
+
+Please action the request and confirm in writing within 14 days. If I do not hear from you, I intend to complain to the Information Commissioner's Office.
+
+Reference: optout:{{ rid }}
+
+Yours faithfully,
+
+{{ sender.full_name }}{% if agent %}
+(authorised agent for {{ p.full_name }}){% endif %}
+
+---------- Original request ----------
+{{ original }}

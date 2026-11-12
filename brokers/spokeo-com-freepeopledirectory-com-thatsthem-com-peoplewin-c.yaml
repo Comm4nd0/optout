@@ -1,0 +1,14 @@
+name: Spokeo.com; Freepeopledirectory.com; Thatsthem.com; Peoplewin.com; Anywho.com; Family.me
+domain: family.me
+jurisdiction: us
+method: email
+contact: jmatthes@spokeo.com
+alt_contact: https://www.spokeo.com/privacy-policy; https://www.spokeo.com/privacy/control/all-categories
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

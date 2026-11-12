@@ -1,0 +1,14 @@
+name: Intentsify, LLC
+domain: intentsify.io
+jurisdiction: us
+method: email
+contact: legal@intentsify.io
+alt_contact: https://intentsify.io/privacy-policy/consumer-data-privacy-policy/; https://app.intentsify.io/opt-out
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

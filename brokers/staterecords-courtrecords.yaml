@@ -1,0 +1,14 @@
+name: StateRecords; CourtRecords
+domain: us; californiacourtrecords.us
+jurisdiction: us
+method: email
+contact: compliance@intermedia.team
+alt_contact: https://staterecords.org/optout; https://courtrecords.us/optout/; https://californiacourtrecords.us/optout/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

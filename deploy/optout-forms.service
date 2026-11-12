@@ -1,0 +1,10 @@
+[Unit]
+Description=optout: submit web opt-out forms
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/optout/optout.env
+ExecStart=/opt/optout/.venv/bin/optout forms --limit 20
+TimeoutStartSec=1h

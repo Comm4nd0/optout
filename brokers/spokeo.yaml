@@ -1,0 +1,17 @@
+name: Spokeo
+domain: spokeo.com
+jurisdiction: us
+method: form
+contact: https://www.spokeo.com/optout
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 2
+category: people-search
+notes: charges money. Find your information and remove your information by entering the URL of the profile
+  you want removed and your email address on the opt-out page. Make sure to scroll down to the grammatically
+  incorrect “opt out your information” section. You will need to confirm your opt-out request by clicking
+  on a link sent to you via email. Unfortunately, we’ve received reports that Spokeo retains removed infor
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

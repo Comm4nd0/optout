@@ -1,0 +1,10 @@
+[Unit]
+Description=optout: read broker replies from Gmail
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/optout/optout.env
+ExecStart=/opt/optout/.venv/bin/optout inbox
+TimeoutStartSec=15min

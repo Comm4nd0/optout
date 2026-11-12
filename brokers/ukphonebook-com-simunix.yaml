@@ -1,0 +1,14 @@
+name: ukphonebook.com (Simunix)
+domain: ukphonebook.com
+method: form
+contact: https://www.ukphonebook.com/remove-me
+alt_contact: dpo@simunix.com
+needs_id: false
+source: https://www.ukphonebook.com/privacy
+notes: Electoral roll people search.
+category: people-search
+recheck_months: 3
+jurisdiction: uk
+priority: 1
+generated: true
+enabled: true

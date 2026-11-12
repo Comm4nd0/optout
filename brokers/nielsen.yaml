@@ -1,0 +1,14 @@
+name: Nielsen
+domain: nielsen.com
+method: form
+contact: https://app-de.onetrust.com/app/#/webform/391293ec-4527-4822-b13c-bc46154b8528
+alt_contact: privacy.department@nielsen.com
+needs_id: true
+source: https://www.nielsen.com/legal/privacy-statement-on-media-analysis/
+notes: Audience measurement data.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

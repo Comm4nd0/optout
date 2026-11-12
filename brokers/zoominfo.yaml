@@ -1,0 +1,14 @@
+name: ZoomInfo
+domain: zoominfo.com
+method: form
+contact: https://www.zoominfo.com/update/remove
+alt_contact: remove@zoominfo.com
+needs_id: true
+source: https://www.zoominfo.com/legal/privacy-policy
+notes: B2B profiles.
+priority: 2
+jurisdiction: uk
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

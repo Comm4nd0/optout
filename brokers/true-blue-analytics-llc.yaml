@@ -1,0 +1,14 @@
+name: True Blue Analytics LLC
+domain: trueblueanalytics.org
+jurisdiction: us
+method: email
+contact: privacy@trueblueanalytics.org
+alt_contact: https://trueblueanalytics.org/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

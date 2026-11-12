@@ -1,0 +1,14 @@
+name: 5x5 US, LLC
+domain: 5x5data.com
+jurisdiction: us
+method: email
+contact: contact@join5x5.com
+alt_contact: https://privacy.5x5data.com/5x5/opt-out; https://5x5data.com/privacy-policy/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: Yes'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

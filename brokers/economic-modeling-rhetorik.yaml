@@ -1,0 +1,14 @@
+name: Economic Modeling; Rhetorik
+domain: io; rhetorik.com
+jurisdiction: us
+method: email
+contact: privacy@lightcast.io
+alt_contact: https://privacyportal.onetrust.com/webform/0f61f895-d08d-410f-b96d-ecfd34fd42e3/8d4dfe0d-998d-4c1d-ab6d-4357670fa8e9
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

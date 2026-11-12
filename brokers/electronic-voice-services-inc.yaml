@@ -1,0 +1,15 @@
+name: Electronic Voice Services, Inc.
+domain: telephonelists.biz
+jurisdiction: us
+method: email
+contact: richard@evs7.com
+alt_contact: https://www.telephonelists.biz/privacy-notice-for-residents-of-california; https://www.telephonelists.biz/privacy-policy-of-telephonelists-biz;
+  https://www.evs7.com/docs/CPNI-PRIVACY-NOTICE-and-POLICY.pdf
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

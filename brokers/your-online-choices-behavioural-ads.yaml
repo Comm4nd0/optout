@@ -1,0 +1,14 @@
+name: Your Online Choices (behavioural ads)
+domain: youronlinechoices.com
+method: manual
+contact: https://www.youronlinechoices.com/uk/
+alt_contact: ''
+needs_id: false
+source: https://www.youronlinechoices.com/uk/
+notes: Cookie-based ad opt-out, per browser.
+category: preference
+recheck_months: 120
+priority: 1
+jurisdiction: uk
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Mailing Preference Service
+domain: mpsonline.org.uk
+method: form
+contact: https://www.mpsonline.org.uk/register
+alt_contact: ''
+needs_id: false
+source: https://www.mpsonline.org.uk/
+notes: Stops addressed marketing mail.
+category: preference
+recheck_months: 120
+priority: 1
+jurisdiction: uk
+generated: true
+enabled: true

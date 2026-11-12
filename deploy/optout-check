@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/local/bin/optout-run check 2>/dev/null || echo '2 "Optout" - check failed to run'

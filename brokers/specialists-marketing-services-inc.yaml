@@ -1,0 +1,16 @@
+name: Specialists Marketing Services, Inc.
+domain: sms-inc.com
+jurisdiction: us
+method: email
+contact: dataprivacyteam@sms-inc.com
+alt_contact: https://sms-inc.com/privacy-notice/; https://sms-inc.com/do-not-sell-or-share-my-personal-information/;
+  https://sms-inc.com/limit-my-sensitive-personal-information-ca/; https://sms-inc.com/personal-information-correct/;
+  https://sms-inc.com/personal-information-shared/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

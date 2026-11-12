@@ -1,0 +1,14 @@
+name: Kindsight
+domain: kindsight.io
+jurisdiction: us
+method: email
+contact: privacy+california@iwave.com
+alt_contact: https://kindsight.io/privacy-policy/#iwave; https://go.kindsight.io/privacy-opt-out
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

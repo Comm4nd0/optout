@@ -1,0 +1,15 @@
+name: Equifax UK (Marketing Services)
+domain: equifax.co.uk
+method: email
+contact: UKDPO@equifax.com
+alt_contact: https://www.equifax.co.uk/contact-us
+needs_id: false
+source: https://equifax.co.uk/downloads/privacy-hub/ein-aug-2026.pdf
+notes: 'Credit-reference erasure will normally be refused; the marketing objection is absolute. Post:
+  Equifax Ltd DPO, PO Box 10036, Leicester LE3 4FS.'
+jurisdiction: uk
+priority: 1
+recheck_months: 6
+category: uk-curated
+generated: true
+enabled: true

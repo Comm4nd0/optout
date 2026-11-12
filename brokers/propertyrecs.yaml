@@ -1,0 +1,14 @@
+name: PropertyRecs
+domain: propertyrecs.com
+jurisdiction: us
+method: form
+contact: https://dashboard.propertyrecs.com/opt-out
+alt_contact: ''
+needs_id: false
+recheck_months: 3
+priority: 3
+category: people-search
+notes: Search for your name and state in the opt-out page, then opt out if needed.
+source: https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List
+generated: true
+enabled: true

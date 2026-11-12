@@ -1,0 +1,14 @@
+name: Cross Pixel Media, Inc.
+domain: crosspixel.net
+jurisdiction: us
+method: email
+contact: privacy@rbarrel.com
+alt_contact: https://privacy.crsspxl.com/; https://crosspixel.net/privacy-policy/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

@@ -1,0 +1,14 @@
+name: Juicebox App, Inc.
+domain: juicebox.ai
+jurisdiction: us
+method: email
+contact: privacy@juicebox.work
+alt_contact: https://juicebox.ai/
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true

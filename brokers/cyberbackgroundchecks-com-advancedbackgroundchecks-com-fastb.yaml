@@ -1,0 +1,19 @@
+name: CyberBackgroundChecks.com; AdvancedBackgroundChecks.com; FastBackgroundCheck.com; PeopleSearchNow.com;
+  Phonebooks.com; SearchPeopleFree.com; SmartBackgroundChecks.com; USA-People-Search.com; USPhoneBook.com;
+  FastPeopleSearch.com
+domain: com; usphonebook.com
+jurisdiction: us
+method: email
+contact: privacy@mtalley.zendesk.com
+alt_contact: https://www.advancedbackgroundchecks.com/privacy; https://www.cyberbackgroundchecks.com/privacy;
+  https://www.fastbackgroundcheck.com/privacy; https://www.fastpeoplesearch.com/privacy; https://www.peoplesearchnow.com/privacy;
+  https://www.phonebooks.com/privacy; https://www.searchpeoplefree.com/privacy; https://www.smartbackgroundchecks.com/privacy;
+  https://www.usa-people-search.com/privacy
+needs_id: false
+recheck_months: 6
+priority: 3
+category: ca-registry
+notes: 'Collects precise geolocation: No'
+source: https://cppa.ca.gov/data_broker_registry/
+generated: true
+enabled: true
