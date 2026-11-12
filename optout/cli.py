@@ -86,10 +86,11 @@ def cmd_web(a):
     import uvicorn
     from .web import app
     cfg = config.load()
-    if not cfg.web_password and cfg.web_host not in ("127.0.0.1", "::1", "localhost"):
-        print(f"warning: OPTOUT_WEB_PASSWORD is not set and the dashboard listens on {cfg.web_host}; "
-              "anyone who can reach it can read and change everything", file=sys.stderr)
-    uvicorn.run(app, host=cfg.web_host, port=cfg.web_port, log_level="warning")
+    if cfg.web_bind != cfg.web_host:
+        print(f"OPTOUT_WEB_PASSWORD is not set, so the dashboard only answers on this machine "
+              f"(http://127.0.0.1:{cfg.web_port}). Set a password to open it on {cfg.web_host}.",
+              file=sys.stderr)
+    uvicorn.run(app, host=cfg.web_bind, port=cfg.web_port, log_level="warning")
 
 
 def cmd_check(a):

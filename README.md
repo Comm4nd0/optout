@@ -96,7 +96,7 @@ git clone https://github.com/Comm4nd0/optout
 cd optout
 uv sync
 cp deploy/people.yaml.example people.yaml    # fill in your details and set enabled: true
-export OPTOUT_PEOPLE=$PWD/people.yaml OPTOUT_STATE=$PWD/state OPTOUT_WEB_HOST=127.0.0.1
+export OPTOUT_PEOPLE=$PWD/people.yaml OPTOUT_STATE=$PWD/state
 
 uv run optout sync                 # load the brokers, create the requests
 uv run optout preview --limit 3    # write three requests to state/outbox/*.eml
@@ -126,7 +126,8 @@ Then:
 2. Turn on 2-Step Verification for the Gmail account and create an
    [app password](https://myaccount.google.com/apppasswords) for it.
 3. Run `optout-secrets`. It asks for the Gmail address, the app password and a password for the
-   dashboard.
+   dashboard. Until the dashboard has a password it only answers on the server itself; setting
+   one opens it to the network.
 4. Check the result: `optout-run sync`, then `optout-run preview` and read a few of the emails in
    `/var/lib/optout/outbox/`. The dashboard is on port 8080; the user name is `admin`.
 5. When you are happy, set `OPTOUT_DRY_RUN=false` in `/etc/optout/optout.env` and run
@@ -187,8 +188,8 @@ Settings are environment variables. On a server they live in `/etc/optout/optout
 | `OPTOUT_REPLY_DAYS` | `30` | Days to wait before the reminder |
 | `OPTOUT_ESCALATE_DAYS` | `30` | Days after the reminder before a request is overdue |
 | `OPTOUT_WEB_USER` | `admin` | Dashboard user name |
-| `OPTOUT_WEB_PASSWORD` | | Dashboard password. If empty, the dashboard has no login at all |
-| `OPTOUT_WEB_HOST` | `0.0.0.0` | Address the dashboard listens on |
+| `OPTOUT_WEB_PASSWORD` | | Dashboard password. If empty there is no login, and the dashboard only listens on `127.0.0.1` |
+| `OPTOUT_WEB_HOST` | `0.0.0.0` | Address the dashboard listens on once it has a password |
 | `OPTOUT_WEB_PORT` | `8080` | Dashboard port |
 | `OPTOUT_PEOPLE` | `/etc/optout/people.yaml` | The people file |
 | `OPTOUT_STATE` | `/var/lib/optout` | Where the database and the dry-run outbox live |
@@ -256,9 +257,9 @@ To change them, copy the directory, edit, and point `OPTOUT_TEMPLATES` at your c
 - A Gmail app password gives full access to the mailbox. The inbox job reads the headers of all
   recent mail to find replies, and reads the body only of mail from a broker or a privacy-request
   service.
-- The dashboard shows those personal details and can change request states. It speaks plain HTTP
-  and listens on every interface by default, so set a password, keep it on a network you trust,
-  and do not expose it to the internet.
+- The dashboard shows those personal details and can change request states. Without a password
+  it only answers on the machine it runs on. With one it listens on every interface by default
+  and speaks plain HTTP, so keep it on a network you trust and do not expose it to the internet.
 - Brokers sometimes answer by asking for identity documents. The tool never sends any; those
   requests wait on the dashboard for you to decide.
 

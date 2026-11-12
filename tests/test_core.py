@@ -252,3 +252,23 @@ def test_example_people_file_is_inert(env, monkeypatch):
     monkeypatch.setenv("OPTOUT_PEOPLE", str(ROOT / "deploy" / "people.yaml.example"))
     people, sender = config.load_people(config.load())
     assert people == {} and sender["full_name"]
+
+
+def test_dashboard_without_password_is_loopback_only(env, monkeypatch, capsys):
+    import uvicorn
+    from optout import cli, config
+    bound = []
+    monkeypatch.setattr(uvicorn, "run", lambda app, **kw: bound.append(kw["host"]))
+    monkeypatch.delenv("OPTOUT_WEB_PASSWORD", raising=False)
+    for asked, got in [(None, "127.0.0.1"), ("0.0.0.0", "127.0.0.1"), ("192.0.2.7", "127.0.0.1"),
+                       ("::1", "::1"), ("localhost", "localhost")]:
+        monkeypatch.delenv("OPTOUT_WEB_HOST", raising=False)
+        if asked:
+            monkeypatch.setenv("OPTOUT_WEB_HOST", asked)
+        assert config.load().web_bind == got, asked
+    monkeypatch.setenv("OPTOUT_WEB_HOST", "0.0.0.0")
+    cli.main(["web"])
+    assert bound == ["127.0.0.1"] and "OPTOUT_WEB_PASSWORD is not set" in capsys.readouterr().err
+    monkeypatch.setenv("OPTOUT_WEB_PASSWORD", "pw")
+    cli.main(["web"])
+    assert bound[-1] == "0.0.0.0" and capsys.readouterr().err == ""

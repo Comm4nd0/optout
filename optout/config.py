@@ -37,6 +37,14 @@ class Config:
     web_host: str
     web_port: int
 
+    @property
+    def web_bind(self) -> str:
+        """Address the dashboard really listens on. Without a password it has no login,
+        so it is only reachable from this machine, whatever OPTOUT_WEB_HOST says."""
+        if self.web_password or self.web_host in ("127.0.0.1", "::1", "localhost"):
+            return self.web_host
+        return "127.0.0.1"
+
 
 def load() -> Config:
     e = os.environ.get
